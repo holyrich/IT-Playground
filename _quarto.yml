@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "IT Playground"
+  navbar:
+    background: white
+    logo: ./img/tere-logo.webp
+    left:
+      - href: index.qmd
+        text: Home
+      - talks.qmd
+      - about.qmd
+    right: 
+      - icon: github
+        href: "#"
+        aria-label: IT Playground
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

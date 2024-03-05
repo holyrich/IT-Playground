@@ -9,12 +9,30 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - text: "R Basic"
+        href: docs/rbasic/index.qmd
+      - text: "Blog"
+        href: docs/blog/index.qmd
       - talks.qmd
       - about.qmd
     right: 
       - icon: github
         href: "#"
         aria-label: IT Playground
+  sidebar:
+    - title: "R Basic"
+      style: "floating"
+      collapse-level: 2
+      align: left
+      contents: 
+        - docs/rbasic/index.qmd
+        - docs/rbasic/lec001.qmd
+    - title: "talks"
+      contents:
+        - talks.qmd
+    - title: "About"
+      contents:
+        - about.qmd
 
 format:
   html:

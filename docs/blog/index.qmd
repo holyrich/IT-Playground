@@ -1,0 +1,16 @@
+---
+title: IT Playground Blog
+subtitle: News, tips about R & Python & AI
+listing:
+  sort: "date desc"
+  contents: "posts"
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  feed: true
+page-layout: full
+margin-header: signup.html
+title-block-banner: "#EDF3F9"
+title-block-banner-color: body
+search: false
+---

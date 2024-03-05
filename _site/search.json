@@ -1,17 +1,35 @@
 [
   {
-    "objectID": "talks.html",
-    "href": "talks.html",
-    "title": "talks",
+    "objectID": "docs/rbasic/lec001.html",
+    "href": "docs/rbasic/lec001.html",
+    "title": "R Basic 첫번째 강좌 페이지",
     "section": "",
-    "text": "IT Playground에서 아무 이야기나 해보시죠."
+    "text": "R Basic 첫번째 강좌를 위한 페이지 입니다.",
+    "crumbs": [
+      "R Basic",
+      "R Basic 첫번째 강좌 페이지"
+    ]
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "docs/rbasic/index.html",
+    "href": "docs/rbasic/index.html",
+    "title": "R Basic을 시작하며",
+    "section": "",
+    "text": "R Basic 시작을 위한 페이지 입니다.",
+    "crumbs": [
+      "R Basic",
+      "R Basic을 시작하며"
+    ]
   },
   {
     "objectID": "index.html",

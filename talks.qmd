@@ -1,5 +1,5 @@
 ---
-title: talks
+title: Talks
 ---
 
 ## IT Playground에서 아무 이야기나 해보시죠.

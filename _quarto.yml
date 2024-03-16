@@ -27,7 +27,7 @@ website:
       contents: 
         - docs/rbasic/index.qmd
         - docs/rbasic/lec001.qmd
-    - title: "talks"
+    - title: "Talks"
       contents:
         - talks.qmd
     - title: "About"

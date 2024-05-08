@@ -12,6 +12,6 @@ image: "success.jpg"
 image-alt: "성공하는 어린이의 이미지입니다."
 ---
 
-생각보다 어렵지만 재미가 있습니다.
+생각보다 복잡하지만만 재미가 있습니다.
 
 ![](success.jpg){.preview-image fig-align="center" fig-alt="성공하는 어린이의 이미지입니다."}

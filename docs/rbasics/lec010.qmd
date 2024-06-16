@@ -1,0 +1,5 @@
+---
+title: "Basic Operations"
+---
+
+In this lecture, we will learn about basic operations in R, including arithmetic, relational, and logical operations.

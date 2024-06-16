@@ -1,0 +1,5 @@
+---
+title: "Introduction to Packages"
+---
+
+This lecture introduces R packages, including how to install and use them to extend R's functionality.

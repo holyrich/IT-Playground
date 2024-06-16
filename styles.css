@@ -1,1 +1,24 @@
-/* css styles */
+/* Center the entire navigation bar */
+
+/*
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand {
+  margin-right: auto;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-right {
+  display: flex;
+  margin-left: auto;
+}  */
+

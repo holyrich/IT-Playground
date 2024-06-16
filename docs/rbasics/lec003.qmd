@@ -1,0 +1,18 @@
+---
+title: "Basic R Syntax"
+---
+
+In this lecture, we will explore the basic syntax of R. Understanding the syntax is fundamental to writing and running R scripts effectively. By the end of this lecture, you will be familiar with the basic components of R code, including variables, operators, and basic functions.
+
+::: callout-note
+**Note:** This lecture is designed for beginners. Follow along with the examples, and don't hesitate to experiment with the code in your RStudio console.
+:::
+
+## Understanding R Syntax
+
+### Variables and Assignment
+
+In R, you assign values to variables using the `<-` operator. This is how you store data for use in your analysis.
+
+\`\`\`r \# Assigning a value to a variable x \<- 5 y \<- "Hello, R!"
+

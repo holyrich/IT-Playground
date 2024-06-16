@@ -1,0 +1,5 @@
+---
+title: "Descriptive Statistics"
+---
+
+In this lecture, we will learn how to calculate descriptive statistics in R, such as mean, median, and standard deviation.

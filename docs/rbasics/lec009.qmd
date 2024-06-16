@@ -1,0 +1,5 @@
+---
+title: "Factors"
+---
+
+This lecture covers factors in R, which are used for categorical data.

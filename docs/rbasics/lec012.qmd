@@ -1,0 +1,5 @@
+---
+title: "Control Structures (if, else, loops)"
+---
+
+In this lecture, we will cover control structures in R, such as if-else statements and loops.

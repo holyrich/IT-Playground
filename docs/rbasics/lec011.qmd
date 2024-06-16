@@ -1,0 +1,5 @@
+---
+title: "Functions in R"
+---
+
+This lecture introduces functions in R, including how to define and use them.

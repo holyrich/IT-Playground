@@ -1,0 +1,5 @@
+---
+title: "Data Manipulation with dplyr"
+---
+
+This lecture introduces the `dplyr` package for data manipulation, including filtering, selecting, and summarizing data.

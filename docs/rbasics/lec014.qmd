@@ -1,0 +1,5 @@
+---
+title: "Data Cleaning"
+---
+
+In this lecture, we will learn techniques for cleaning data in R to prepare it for analysis.

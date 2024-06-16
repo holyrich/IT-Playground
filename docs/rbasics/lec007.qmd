@@ -1,0 +1,5 @@
+---
+title: "Lists"
+---
+
+This lecture introduces lists in R, including how to create, access, and manipulate them.

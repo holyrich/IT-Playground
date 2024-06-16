@@ -1,0 +1,5 @@
+---
+title: "Data Types in R"
+---
+
+In this lecture, we will explore the different data types in R, such as numeric, character, and logical.

@@ -1,0 +1,5 @@
+---
+title: "Importing Data"
+---
+
+This lecture covers how to import data into R from various sources, including CSV and Excel files.

@@ -1,0 +1,5 @@
+---
+title: "String Manipulation"
+---
+
+In this lecture, we will cover string manipulation in R, including functions for working with text data.

@@ -2,8 +2,4 @@
 title: "About"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+This website is dedicated to providing comprehensive resources for learning R programming and data science. We hope you find it helpful and engaging. For any questions or feedback, feel free to contact us.

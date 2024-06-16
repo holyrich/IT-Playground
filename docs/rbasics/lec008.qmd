@@ -1,0 +1,5 @@
+---
+title: "Data Frames"
+---
+
+In this lecture, we will explore data frames in R, which are used for storing tabular data.

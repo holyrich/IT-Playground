@@ -9,30 +9,69 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: "R Basic"
-        href: docs/rbasic/index.qmd
+      - text: "R Basics"
+        href: docs/rbasics/index.qmd
+      - text: "R Graphs"
+        href: docs/rgraphs/index.qmd
+      - text: "ML R"
+        href: docs/mlr/index.qmd
+      - text: "Shiny R"
+        href: docs/shinyr/index.qmd
+      - text: "Quarto"
+        href: docs/quarto/index.qmd
       - text: "Blog"
         href: docs/blog/index.qmd
-      - talks.qmd
-      - about.qmd
+      - text: "About"
+        href: docs/about.qmd
     right: 
       - icon: github
         href: "#"
         aria-label: IT Playground
   sidebar:
-    - title: "R Basic"
+    - title: "R Basics"
       style: "floating"
       collapse-level: 2
       align: left
       contents: 
-        - docs/rbasic/index.qmd
-        - docs/rbasic/lec001.qmd
-    - title: "Talks"
+        - docs/rbasics/index.qmd
+        - docs/rbasics/lec001.qmd
+        - docs/rbasics/lec002.qmd
+        - docs/rbasics/lec003.qmd
+        - docs/rbasics/lec004.qmd
+        - docs/rbasics/lec005.qmd
+        - docs/rbasics/lec006.qmd
+        - docs/rbasics/lec007.qmd
+        - docs/rbasics/lec008.qmd
+        - docs/rbasics/lec009.qmd
+        - docs/rbasics/lec010.qmd
+        - docs/rbasics/lec011.qmd
+        - docs/rbasics/lec012.qmd
+        - docs/rbasics/lec013.qmd
+        - docs/rbasics/lec014.qmd
+        - docs/rbasics/lec015.qmd
+        - docs/rbasics/lec016.qmd
+        - docs/rbasics/lec017.qmd
+        - docs/rbasics/lec018.qmd
+        - docs/rbasics/lec019.qmd
+        - docs/rbasics/lec020.qmd
+    - title: "R Graphs"
       contents:
-        - talks.qmd
+        - docs/rgraphs/index.qmd
+    - title: "ML R"
+      contents:
+        - docs/mlr/index.qmd
+    - title: "Shiny R"
+      contents:
+        - docs/shinyr/index.qmd
+    - title: "Quarto"
+      contents:
+        - docs/quarto/index.qmd
+    - title: "Blog"
+      contents:
+        - docs/blog/index.qmd
     - title: "About"
       contents:
-        - about.qmd
+        - docs/about.qmd
 
 format:
   html:
@@ -41,4 +80,3 @@ format:
     toc: true
 
 editor: visual
-

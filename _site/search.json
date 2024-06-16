@@ -1,13 +1,187 @@
 [
   {
-    "objectID": "docs/rbasic/lec001.html",
-    "href": "docs/rbasic/lec001.html",
-    "title": "R Basic 첫번째 강좌 페이지",
+    "objectID": "docs/rbasics/lec020.html",
+    "href": "docs/rbasics/lec020.html",
+    "title": "Exporting Data",
     "section": "",
-    "text": "R Basic 첫번째 강좌를 위한 페이지 입니다.",
+    "text": "In this lecture, we will learn how to export data from R to various formats, including CSV and Excel files.",
     "crumbs": [
-      "R Basic",
-      "R Basic 첫번째 강좌 페이지"
+      "R Basics",
+      "Exporting Data"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec018.html",
+    "href": "docs/rbasics/lec018.html",
+    "title": "Descriptive Statistics",
+    "section": "",
+    "text": "In this lecture, we will learn how to calculate descriptive statistics in R, such as mean, median, and standard deviation.",
+    "crumbs": [
+      "R Basics",
+      "Descriptive Statistics"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec016.html",
+    "href": "docs/rbasics/lec016.html",
+    "title": "String Manipulation",
+    "section": "",
+    "text": "In this lecture, we will cover string manipulation in R, including functions for working with text data.",
+    "crumbs": [
+      "R Basics",
+      "String Manipulation"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec014.html",
+    "href": "docs/rbasics/lec014.html",
+    "title": "Data Cleaning",
+    "section": "",
+    "text": "In this lecture, we will learn techniques for cleaning data in R to prepare it for analysis.",
+    "crumbs": [
+      "R Basics",
+      "Data Cleaning"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec012.html",
+    "href": "docs/rbasics/lec012.html",
+    "title": "Control Structures (if, else, loops)",
+    "section": "",
+    "text": "In this lecture, we will cover control structures in R, such as if-else statements and loops.",
+    "crumbs": [
+      "R Basics",
+      "Control Structures (if, else, loops)"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec010.html",
+    "href": "docs/rbasics/lec010.html",
+    "title": "Basic Operations",
+    "section": "",
+    "text": "In this lecture, we will learn about basic operations in R, including arithmetic, relational, and logical operations.",
+    "crumbs": [
+      "R Basics",
+      "Basic Operations"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec008.html",
+    "href": "docs/rbasics/lec008.html",
+    "title": "Data Frames",
+    "section": "",
+    "text": "In this lecture, we will explore data frames in R, which are used for storing tabular data.",
+    "crumbs": [
+      "R Basics",
+      "Data Frames"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec006.html",
+    "href": "docs/rbasics/lec006.html",
+    "title": "Matrices",
+    "section": "",
+    "text": "In this lecture, we will learn about matrices in R, their creation, and operations on matrices.",
+    "crumbs": [
+      "R Basics",
+      "Matrices"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec004.html",
+    "href": "docs/rbasics/lec004.html",
+    "title": "Data Types in R",
+    "section": "",
+    "text": "In this lecture, we will explore the different data types in R, such as numeric, character, and logical.",
+    "crumbs": [
+      "R Basics",
+      "Data Types in R"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html",
+    "href": "docs/rbasics/lec002.html",
+    "title": "Installing R and RStudio",
+    "section": "",
+    "text": "In this lecture, we will learn how to install R and RStudio on your computer. We will cover the installation process for both Windows and Mac. By the end of this lecture, you will have R and RStudio up and running, ready for data analysis and statistical computing.",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html#downloading-r",
+    "href": "docs/rbasics/lec002.html#downloading-r",
+    "title": "Installing R and RStudio",
+    "section": "Downloading R",
+    "text": "Downloading R\n\nStep 1: Visit the CRAN Website\nGo to the CRAN website to download the latest version of R. CRAN (The Comprehensive R Archive Network) is the official repository for R software and packages.\n\n\nStep 2: Choose Your Operating System\nSelect your operating system (Windows, Mac, or Linux) to download the appropriate installer.\n\nWindows: Click on “Download R for Windows” and then “base.” Download the installer and run it.\nMac: Click on “Download R for (Mac) OS X” and download the appropriate installer for your version of macOS.\n\n\n\nStep 3: Install R\nRun the downloaded installer and follow the on-screen instructions to complete the installation.\n\nWindows: Double-click the installer and follow the prompts, clicking “Next” until the installation is complete.\nMac: Open the downloaded .pkg file and follow the installation instructions.\n\n::: {.callout-note} ::: {.callout-note} If you need detailed instructions, refer to the official R documentation or this helpful installation guide. (Although second one is in Korean, you can right-click on the webpage body and use the translation menu.)\n:::",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html#downloading-and-installing-rstudio",
+    "href": "docs/rbasics/lec002.html#downloading-and-installing-rstudio",
+    "title": "Installing R and RStudio",
+    "section": "Downloading and Installing RStudio",
+    "text": "Downloading and Installing RStudio\n\nStep 1: Visit the RStudio Website\nGo to the RStudio website to download the free version of RStudio Desktop.\n\n\nStep 2: Choose Your Operating System\nSelect your operating system (Windows, Mac, or Linux) to download the appropriate installer.\n\nWindows: Click on “Download RStudio for Windows” and download the installer.\nMac: Click on “Download RStudio for Mac” and download the installer.\n\n\n\nStep 3: Install RStudio\nRun the downloaded installer and follow the on-screen instructions to complete the installation.\n\nWindows: Double-click the installer and follow the prompts, clicking “Next” until the installation is complete.\nMac: Open the downloaded .dmg file, drag the RStudio icon to the Applications folder, and follow any additional prompts.",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html#verifying-your-installation",
+    "href": "docs/rbasics/lec002.html#verifying-your-installation",
+    "title": "Installing R and RStudio",
+    "section": "Verifying Your Installation",
+    "text": "Verifying Your Installation\nOnce you have installed both R and RStudio, verify the installation by opening RStudio:\n\nLaunch RStudio:\n\nOn Windows, find RStudio in the Start menu and click to open.\nOn Mac, find RStudio in the Applications folder and double-click to open.\n\nCheck the Console:\n\nThe Console pane should display the R version information, confirming that R is properly installed.\n\nR version 4.x.x (YYYY-MM-DD) -- \"Nickname\"\nRun a Simple Command:\n\nType the following command in the Console and press Enter to ensure R is functioning correctly:\n\nprint(\"Hello, R!\")\n\nYou should see the output Hello, R! in the Console.\n\n\n\n\n\n\nconsole pane",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html#troubleshooting",
+    "href": "docs/rbasics/lec002.html#troubleshooting",
+    "title": "Installing R and RStudio",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\nIf you encounter any issues during the installation, consider the following resources:\n\nRStudio Support: Visit the RStudio Support page for common troubleshooting steps and FAQs.\nR Community: Join forums like RStudio Community or Stack Overflow to ask questions and seek help from other R users.",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec002.html#conclusion",
+    "href": "docs/rbasics/lec002.html#conclusion",
+    "title": "Installing R and RStudio",
+    "section": "Conclusion",
+    "text": "Conclusion\nCongratulations! You have successfully installed R and RStudio on your computer. You are now ready to start writing and running R code. In the next lecture, we will explore the basic syntax of R and write our first R scripts.\nStay tuned for more exciting content in the R Basics series!\n\nKeywords: Installing R, Installing RStudio, R installation guide, RStudio installation guide, R tutorial for beginners, how to install R, how to install RStudio",
+    "crumbs": [
+      "R Basics",
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/index.html",
+    "href": "docs/rbasics/index.html",
+    "title": "R Basics",
+    "section": "",
+    "text": "Welcome to the R Basics section! This series of tutorials is designed to introduce you to the fundamentals of R programming, a powerful tool for data analysis, statistical computing, and graphics. Whether you are new to programming or transitioning from another language, these tutorials will guide you step-by-step through the essential concepts and techniques in R.",
+    "crumbs": [
+      "R Basics"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/index.html#contents",
+    "href": "docs/rbasics/index.html#contents",
+    "title": "R Basics",
+    "section": "Contents",
+    "text": "Contents\n\nIntroduction to R\n\nLearn what R is, its history, and its applications in various fields.\n\nInstalling R and RStudio\n\nStep-by-step instructions on how to install R and RStudio on your computer, making it easy to get started with R programming.\n\nBasic R Syntax\n\nAn introduction to the basic syntax and structure of R code, including how to write and run simple R scripts.\n\nData Types in R\n\nExplore the different types of data in R, such as numeric, character, and logical, and understand how to work with them.\n\nVectors\n\nLearn about vectors, a fundamental data structure in R, and how to create, manipulate, and use them in various operations.\n\nMatrices\n\nDiscover matrices in R, how to create them, and perform operations on matrix data.\n\nLists\n\nUnderstand lists, a versatile data structure in R, including how to create, access, and manipulate list elements.\n\nData Frames\n\nGet to know data frames, essential for storing tabular data in R, and learn how to work with them effectively.\n\nFactors\n\nIntroduction to factors, which are used for handling categorical data in R, including how to create and use them.\n\nBasic Operations\n\nLearn about basic arithmetic, relational, and logical operations in R.\n\nFunctions in R\n\nDiscover how to define and use functions in R to encapsulate reusable code.\n\nControl Structures\n\nUnderstand control structures like if-else statements and loops, which are essential for controlling the flow of your R programs.\n\nImporting Data\n\nLearn how to import data into R from various sources, such as CSV and Excel files, to start your data analysis.\n\nData Cleaning\n\nTechniques for cleaning and preparing your data in R to ensure it’s ready for analysis.\n\nData Manipulation with dplyr\n\nIntroduction to the dplyr package, which simplifies data manipulation tasks like filtering, selecting, and summarizing data.\n\nString Manipulation\n\nLearn how to manipulate and work with text data in R using various string functions.\n\nWorking with Dates\n\nDiscover how to handle date and time data in R, including parsing and formatting dates.\n\nDescriptive Statistics\n\nLearn how to calculate and interpret descriptive statistics, such as mean, median, and standard deviation, in R.\n\nIntroduction to Packages\n\nUnderstand how to extend R’s functionality by installing and using packages from CRAN and other repositories.\n\nExporting Data\n\nLearn how to export your data from R to various formats, such as CSV and Excel files, for sharing and reporting.\n\n\nWe hope you find these tutorials helpful as you embark on your journey to learn R programming. Let’s get started!",
+    "crumbs": [
+      "R Basics"
     ]
   },
   {
@@ -15,27 +189,209 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2",
+    "text": "This website is dedicated to providing comprehensive resources for learning R programming and data science. We hope you find it helpful and engaging. For any questions or feedback, feel free to contact us."
+  },
+  {
+    "objectID": "docs/rbasics/lec001.html",
+    "href": "docs/rbasics/lec001.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Welcome to the first lecture on R Basics! In this lecture, we will provide an overview of R, its history, and its applications. Whether you’re new to programming or transitioning from another language, this guide will help you understand the basics of R and how it can be used for data analysis, statistical computing, and graphics.",
     "crumbs": [
-      "About"
+      "R Basics",
+      "Introduction to R"
     ]
   },
   {
-    "objectID": "docs/rbasic/index.html",
-    "href": "docs/rbasic/index.html",
-    "title": "R Basic을 시작하며",
-    "section": "",
-    "text": "R Basic 시작을 위한 페이지 입니다.",
+    "objectID": "docs/rbasics/lec001.html#history-of-r",
+    "href": "docs/rbasics/lec001.html#history-of-r",
+    "title": "Introduction to R",
+    "section": "History of R",
+    "text": "History of R\n\n\n\n\n\n\nBrief History\n\n\n\nR was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the mid-1990s. It is an open-source implementation of the S programming language, which was developed at Bell Laboratories by John Chambers and colleagues. Since its inception, R has grown in popularity and has become a standard tool for data analysis in academia and industry.",
     "crumbs": [
-      "R Basic",
-      "R Basic을 시작하며"
+      "R Basics",
+      "Introduction to R"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IT Playground",
+    "objectID": "docs/rbasics/lec001.html#why-use-r",
+    "href": "docs/rbasics/lec001.html#why-use-r",
+    "title": "Introduction to R",
+    "section": "Why Use R?",
+    "text": "Why Use R?\nThere are several reasons why R is a popular choice for data analysis and statistical computing:\n\nOpen Source: R is free to use and open-source, which means anyone can contribute to its development and improvement.\nComprehensive: R has a vast collection of packages available for various types of data analysis and visualization.\nCommunity Support: R has a large and active community of users who contribute to forums, mailing lists, and online resources.\nFlexibility: R can be integrated with other programming languages and tools, such as Python, SQL, and Hadoop.\nVisualization: R excels in creating high-quality plots and graphs, making it easier to visualize and interpret data.",
+    "crumbs": [
+      "R Basics",
+      "Introduction to R"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec001.html#conclusion",
+    "href": "docs/rbasics/lec001.html#conclusion",
+    "title": "Introduction to R",
+    "section": "Conclusion",
+    "text": "Conclusion\nCongratulations! You’ve completed your first lecture on R Basics. In this lecture, you learned what R is, its history, why it’s used. In the next lecture, we will dive deeper into installing R and RStudio, and start exploring the basic syntax of R.\nStay tuned for more exciting content in the R Basics series!\n\nKeywords: Introduction to R, R programming, data analysis, statistical computing, data visualization, RStudio, installing R, getting started with R, R tutorial for beginners",
+    "crumbs": [
+      "R Basics",
+      "Introduction to R"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec003.html",
+    "href": "docs/rbasics/lec003.html",
+    "title": "Basic R Syntax",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "In this lecture, we will explore the basic syntax of R. Understanding the syntax is fundamental to writing and running R scripts effectively. By the end of this lecture, you will be familiar with the basic components of R code, including variables, operators, and basic functions.",
+    "crumbs": [
+      "R Basics",
+      "Basic R Syntax"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec003.html#understanding-r-syntax",
+    "href": "docs/rbasics/lec003.html#understanding-r-syntax",
+    "title": "Basic R Syntax",
+    "section": "Understanding R Syntax",
+    "text": "Understanding R Syntax\n\nVariables and Assignment\nIn R, you assign values to variables using the &lt;- operator. This is how you store data for use in your analysis.\n```r # Assigning a value to a variable x &lt;- 5 y &lt;- “Hello, R!”",
+    "crumbs": [
+      "R Basics",
+      "Basic R Syntax"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec005.html",
+    "href": "docs/rbasics/lec005.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "This lecture covers vectors in R, including how to create, manipulate, and use them in various operations.",
+    "crumbs": [
+      "R Basics",
+      "Vectors"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec007.html",
+    "href": "docs/rbasics/lec007.html",
+    "title": "Lists",
+    "section": "",
+    "text": "This lecture introduces lists in R, including how to create, access, and manipulate them.",
+    "crumbs": [
+      "R Basics",
+      "Lists"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec009.html",
+    "href": "docs/rbasics/lec009.html",
+    "title": "Factors",
+    "section": "",
+    "text": "This lecture covers factors in R, which are used for categorical data.",
+    "crumbs": [
+      "R Basics",
+      "Factors"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec011.html",
+    "href": "docs/rbasics/lec011.html",
+    "title": "Functions in R",
+    "section": "",
+    "text": "This lecture introduces functions in R, including how to define and use them.",
+    "crumbs": [
+      "R Basics",
+      "Functions in R"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec013.html",
+    "href": "docs/rbasics/lec013.html",
+    "title": "Importing Data",
+    "section": "",
+    "text": "This lecture covers how to import data into R from various sources, including CSV and Excel files.",
+    "crumbs": [
+      "R Basics",
+      "Importing Data"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec015.html",
+    "href": "docs/rbasics/lec015.html",
+    "title": "Data Manipulation with dplyr",
+    "section": "",
+    "text": "This lecture introduces the dplyr package for data manipulation, including filtering, selecting, and summarizing data.",
+    "crumbs": [
+      "R Basics",
+      "Data Manipulation with dplyr"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec017.html",
+    "href": "docs/rbasics/lec017.html",
+    "title": "Working with Dates",
+    "section": "",
+    "text": "This lecture covers how to work with date and time data in R.",
+    "crumbs": [
+      "R Basics",
+      "Working with Dates"
+    ]
+  },
+  {
+    "objectID": "docs/rbasics/lec019.html",
+    "href": "docs/rbasics/lec019.html",
+    "title": "Introduction to Packages",
+    "section": "",
+    "text": "This lecture introduces R packages, including how to install and use them to extend R’s functionality.",
+    "crumbs": [
+      "R Basics",
+      "Introduction to Packages"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Welcome to the R Learning Hub",
+    "section": "Introduction",
+    "text": "Introduction\nWelcome to the R Learning Hub! Whether you’re a beginner in R or looking to enhance your data science skills, this website is your go-to resource. We cover everything from the basics of R programming to advanced topics like machine learning and interactive web applications with Shiny. Let’s dive in and start your journey to mastering R!"
+  },
+  {
+    "objectID": "index.html#r-basics",
+    "href": "index.html#r-basics",
+    "title": "Welcome to the R Learning Hub",
+    "section": "R Basics",
+    "text": "R Basics\nStart your R journey here! Learn the fundamental concepts of R programming, including basic syntax, data types, and essential operations. Perfect for beginners!"
+  },
+  {
+    "objectID": "index.html#r-graph",
+    "href": "index.html#r-graph",
+    "title": "Welcome to the R Learning Hub",
+    "section": "R Graph",
+    "text": "R Graph\nExplore the powerful graphical capabilities of R. Learn how to create various types of plots, customize them, and make them interactive with ggplot2 and plotly."
+  },
+  {
+    "objectID": "index.html#ml-r",
+    "href": "index.html#ml-r",
+    "title": "Welcome to the R Learning Hub",
+    "section": "ML R",
+    "text": "ML R\nDelve into the world of machine learning with R. Understand different algorithms, preprocess data, train models, and evaluate their performance."
+  },
+  {
+    "objectID": "index.html#shiny-r",
+    "href": "index.html#shiny-r",
+    "title": "Welcome to the R Learning Hub",
+    "section": "Shiny R",
+    "text": "Shiny R\nCreate interactive web applications using Shiny. Learn the basics of setting up Shiny apps, designing user interfaces, and adding interactive elements."
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Welcome to the R Learning Hub",
+    "section": "Quarto",
+    "text": "Quarto\nMaster Quarto, a powerful tool for creating dynamic documents and presentations. Learn to integrate code, customize appearance, and publish your work."
+  },
+  {
+    "objectID": "index.html#get-started",
+    "href": "index.html#get-started",
+    "title": "Welcome to the R Learning Hub",
+    "section": "Get Started!",
+    "text": "Get Started!\nReady to start learning? Choose a topic from the menu and dive in. Happy learning!\n\n© 2024 R Learning Hub. All rights reserved."
   }
 ]

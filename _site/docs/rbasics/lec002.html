@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="TERE">
-<meta name="dcterms.date" content="2024-03-08">
-<meta name="description" content="Quarto란?, 주요 기능, 소스코드 예시 등">
 
-<title>IT Playground - Quarto 소개</title>
+<title>IT Playground - Installing R and RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,28 +100,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #EDF3F9;
-      }
-</style>
 
 
-<link rel="stylesheet" href="../../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../.././img/tere-logo.webp" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../.././img/tere-logo.webp" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IT Playground</span>
     </a>
   </div>
@@ -135,41 +126,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/rbasics/index.html"> 
+    <a class="nav-link active" href="../../docs/rbasics/index.html" aria-current="page"> 
 <span class="menu-text">R Basics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/rgraphs/index.qmd"> 
+    <a class="nav-link" href="../../docs/rgraphs/index.qmd"> 
 <span class="menu-text">R Graphs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/mlr/index.qmd"> 
+    <a class="nav-link" href="../../docs/mlr/index.qmd"> 
 <span class="menu-text">ML R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/shinyr/index.qmd"> 
+    <a class="nav-link" href="../../docs/shinyr/index.qmd"> 
 <span class="menu-text">Shiny R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/quarto/index.qmd"> 
+    <a class="nav-link" href="../../docs/quarto/index.qmd"> 
 <span class="menu-text">Quarto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/blog/index.html"> 
+    <a class="nav-link" href="../../docs/blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../docs/about.qmd"> 
+    <a class="nav-link" href="../../docs/about.qmd"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../#"> <i class="bi bi-github" role="img" aria-label="IT Playground">
+    <a class="nav-link" href="../../#"> <i class="bi bi-github" role="img" aria-label="IT Playground">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -179,142 +170,332 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/rbasics/lec002.html">Installing R and RStudio</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Quarto 소개</h1>
-            <p class="subtitle lead">Qaurto 입문자를 위한 전반적인 내용입니다.</p>
-                  <div>
-        <div class="description">
-          <p>Quarto란?, 주요 기능, 소스코드 예시 등</p>
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Quarto</div>
-                <div class="quarto-category">overview</div>
-                <div class="quarto-category">source code</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>TERE </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">March 8, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#quarto쿼토-소개" id="toc-quarto쿼토-소개" class="nav-link active" data-scroll-target="#quarto쿼토-소개">Quarto(쿼토) 소개</a>
-  <ul class="collapse">
-  <li><a href="#toctable-of-contents" id="toc-toctable-of-contents" class="nav-link" data-scroll-target="#toctable-of-contents">TOC(Table Of Contents)</a></li>
-  <li><a href="#쿼토란-무엇인가" id="toc-쿼토란-무엇인가" class="nav-link" data-scroll-target="#쿼토란-무엇인가">쿼토란 무엇인가?</a></li>
-  <li><a href="#쿼토의-주요-기능" id="toc-쿼토의-주요-기능" class="nav-link" data-scroll-target="#쿼토의-주요-기능">쿼토의 주요 기능</a></li>
-  <li><a href="#쿼토-소스코드-예시" id="toc-쿼토-소스코드-예시" class="nav-link" data-scroll-target="#쿼토-소스코드-예시">소스코드 예시</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec002.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installing R and RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic R Syntax</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec004.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Types in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec006.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lists</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec008.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Frames</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec009.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Factors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic Operations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures (if, else, loops)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec013.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Importing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec014.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Cleaning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Manipulation with dplyr</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec016.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">String Manipulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec017.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Working with Dates</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec018.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptive Statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/rbasics/lec020.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exporting Data</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#downloading-r" id="toc-downloading-r" class="nav-link active" data-scroll-target="#downloading-r">Downloading R</a>
+  <ul class="collapse">
+  <li><a href="#step-1-visit-the-cran-website" id="toc-step-1-visit-the-cran-website" class="nav-link" data-scroll-target="#step-1-visit-the-cran-website">Step 1: Visit the CRAN Website</a></li>
+  <li><a href="#step-2-choose-your-operating-system" id="toc-step-2-choose-your-operating-system" class="nav-link" data-scroll-target="#step-2-choose-your-operating-system">Step 2: Choose Your Operating System</a></li>
+  <li><a href="#step-3-install-r" id="toc-step-3-install-r" class="nav-link" data-scroll-target="#step-3-install-r">Step 3: Install R</a></li>
+  </ul></li>
+  <li><a href="#downloading-and-installing-rstudio" id="toc-downloading-and-installing-rstudio" class="nav-link" data-scroll-target="#downloading-and-installing-rstudio">Downloading and Installing RStudio</a>
+  <ul class="collapse">
+  <li><a href="#step-1-visit-the-rstudio-website" id="toc-step-1-visit-the-rstudio-website" class="nav-link" data-scroll-target="#step-1-visit-the-rstudio-website">Step 1: Visit the RStudio Website</a></li>
+  <li><a href="#step-2-choose-your-operating-system-1" id="toc-step-2-choose-your-operating-system-1" class="nav-link" data-scroll-target="#step-2-choose-your-operating-system-1">Step 2: Choose Your Operating System</a></li>
+  <li><a href="#step-3-install-rstudio" id="toc-step-3-install-rstudio" class="nav-link" data-scroll-target="#step-3-install-rstudio">Step 3: Install RStudio</a></li>
+  </ul></li>
+  <li><a href="#verifying-your-installation" id="toc-verifying-your-installation" class="nav-link" data-scroll-target="#verifying-your-installation">Verifying Your Installation</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Installing R and RStudio</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="quarto쿼토-소개" class="level1">
-<h1>Quarto(쿼토) 소개</h1>
-<section id="toctable-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="toctable-of-contents">TOC(Table Of Contents)</h2>
+</header>
+
+
+<p>In this lecture, we will learn how to install R and RStudio on your computer. We will cover the installation process for both Windows and Mac. By the end of this lecture, you will have R and RStudio up and running, ready for data analysis and statistical computing.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note:</strong> Installing R and RStudio is straightforward. Follow the steps below, and if you encounter any difficulties, refer to the provided links or seek help from the community.</p>
+</div>
+</div>
+<section id="downloading-r" class="level2">
+<h2 class="anchored" data-anchor-id="downloading-r">Downloading R</h2>
+<section id="step-1-visit-the-cran-website" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-visit-the-cran-website">Step 1: Visit the CRAN Website</h3>
+<p>Go to the <a href="https://cran.r-project.org">CRAN website</a> to download the latest version of R. CRAN (The Comprehensive R Archive Network) is the official repository for R software and packages.</p>
+</section>
+<section id="step-2-choose-your-operating-system" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-choose-your-operating-system">Step 2: Choose Your Operating System</h3>
+<p>Select your operating system (Windows, Mac, or Linux) to download the appropriate installer.</p>
 <ul>
-<li><a href="#쿼토란-무엇인가">쿼토란 무엇인가?</a></li>
-<li><a href="#쿼토의-주요-기능">쿼토의 주요 기능</a></li>
-<li><a href="#쿼토-소스코드-예시">소스코드 예시</a></li>
+<li><strong>Windows</strong>: Click on “Download R for Windows” and then “base.” Download the installer and run it.</li>
+<li><strong>Mac</strong>: Click on “Download R for (Mac) OS X” and download the appropriate installer for your version of macOS.</li>
 </ul>
 </section>
-<section id="쿼토란-무엇인가" class="level2">
-<h2 class="anchored" data-anchor-id="쿼토란-무엇인가">쿼토란 무엇인가?</h2>
-<p>쿼토(quarto)는 R 기반의 다목적 문서 작성 도구로, 마크다운 형식의 문법을 사용하여 다양한 종류의 문서를 작성할 수 있습니다. 쿼토를 사용하면 R 코드와 텍스트를 함께 작성하여 데이터 분석 결과를 보고서나 웹 페이지 등으로 쉽게 변환할 수 있습니다.</p>
+<section id="step-3-install-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-install-r">Step 3: Install R</h3>
+<p>Run the downloaded installer and follow the on-screen instructions to complete the installation.</p>
+<ul>
+<li><strong>Windows</strong>: Double-click the installer and follow the prompts, clicking “Next” until the installation is complete.</li>
+<li><strong>Mac</strong>: Open the downloaded <code>.pkg</code> file and follow the installation instructions.</li>
+</ul>
+<p>::: {.callout-note} ::: {.callout-note} If you need detailed instructions, refer to the <a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">official R documentation</a> or this helpful <a href="https://secondlife.lol/r-rstudio-install/" target="_blank" style="color:orange; font-weight:bold;">installation guide</a>. (Although second one is in Korean, you can right-click on the webpage body and use the translation menu.)<br>
+:::</p>
 </section>
-<section id="쿼토의-주요-기능" class="level2">
-<h2 class="anchored" data-anchor-id="쿼토의-주요-기능">쿼토의 주요 기능</h2>
-<p>쿼토는 다음과 같은 주요 기능을 제공합니다: - 마크다운 형식의 문법을 사용하여 쉽게 문서를 작성할 수 있습니다. - R 코드와 통합되어 있어 데이터 분석 및 시각화를 쉽게 수행할 수 있습니다. - 다양한 출력 포맷을 지원하여 웹 페이지, PDF 문서, 전자책 등으로 문서를 출력할 수 있습니다. - 템플릿 기능을 제공하여 문서의 디자인을 효율적으로 관리할 수 있습니다.</p>
 </section>
-<section id="쿼토-소스코드-예시" class="level2">
-<h2 class="anchored" data-anchor-id="쿼토-소스코드-예시">소스코드 예시</h2>
-<p>다음은 쿼토를 사용하여 간단한 그래프를 생성하는 예시 코드입니다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<section id="downloading-and-installing-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="downloading-and-installing-rstudio">Downloading and Installing RStudio</h2>
+<section id="step-1-visit-the-rstudio-website" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-visit-the-rstudio-website">Step 1: Visit the RStudio Website</h3>
+<p>Go to the <a href="https://www.rstudio.com/products/rstudio/download/">RStudio website</a> to download the free version of RStudio Desktop.</p>
+</section>
+<section id="step-2-choose-your-operating-system-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-choose-your-operating-system-1">Step 2: Choose Your Operating System</h3>
+<p>Select your operating system (Windows, Mac, or Linux) to download the appropriate installer.</p>
+<ul>
+<li><strong>Windows</strong>: Click on “Download RStudio for Windows” and download the installer.</li>
+<li><strong>Mac</strong>: Click on “Download RStudio for Mac” and download the installer.</li>
+</ul>
+</section>
+<section id="step-3-install-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-install-rstudio">Step 3: Install RStudio</h3>
+<p>Run the downloaded installer and follow the on-screen instructions to complete the installation.</p>
+<ul>
+<li><strong>Windows</strong>: Double-click the installer and follow the prompts, clicking “Next” until the installation is complete.</li>
+<li><strong>Mac</strong>: Open the downloaded <code>.dmg</code> file, drag the RStudio icon to the Applications folder, and follow any additional prompts.</li>
+</ul>
+</section>
+</section>
+<section id="verifying-your-installation" class="level2">
+<h2 class="anchored" data-anchor-id="verifying-your-installation">Verifying Your Installation</h2>
+<p>Once you have installed both R and RStudio, verify the installation by opening RStudio:</p>
+<ol type="1">
+<li><p><strong>Launch RStudio</strong>:</p>
+<ul>
+<li>On Windows, find RStudio in the Start menu and click to open.</li>
+<li>On Mac, find RStudio in the Applications folder and double-click to open.</li>
+</ul></li>
+<li><p><strong>Check the Console</strong>:</p>
+<ul>
+<li>The Console pane should display the R version information, confirming that R is properly installed.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R version <span class="fl">4.</span><span class="fu">x.x</span> (YYYY<span class="sc">-</span>MM<span class="sc">-</span>DD) <span class="sc">--</span> <span class="st">"Nickname"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Run a Simple Command</strong>:</p>
+<ul>
+<li>Type the following command in the Console and press <code>Enter</code> to ensure R is functioning correctly:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, R!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>You should see the output <code>Hello, R!</code> in the Console.</li>
+</ul></li>
+</ol>
+<style>
+img.centered {
+  border: 1px solid black;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figure {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+  text-align: center;
+}
+</style>
+<div class="figure">
+<img src="images/consolepane.png" alt="console pane" class="centered">
+<figcaption>
+console pane
+</figcaption>
 </div>
-</div>
-</div>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<p>If you encounter any issues during the installation, consider the following resources:</p>
+<ul>
+<li><strong>RStudio Support</strong>: Visit the <a href="https://support.rstudio.com/hc/en-us">RStudio Support</a> page for common troubleshooting steps and FAQs.</li>
+<li><strong>R Community</strong>: Join forums like <a href="https://community.rstudio.com/">RStudio Community</a> or <a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a> to ask questions and seek help from other R users.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully installed R and RStudio on your computer. You are now ready to start writing and running R code. In the next lecture, we will explore the basic syntax of R and write our first R scripts.</p>
+<p>Stay tuned for more exciting content in the R Basics series!</p>
+<hr>
+<p><strong>Keywords</strong>: Installing R, Installing RStudio, R installation guide, RStudio installation guide, R tutorial for beginners, how to install R, how to install RStudio</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
-<!-- Begin Mailchimp Signup Form -->
-<div id="mc_embed_signup" style="padding-bottom: 1em; max-width: 400px;" class="ms-auto me-auto">
-  <p style="font-weight: 600; margin-bottom: 0;">Subscribe</p>
-  <span style="font-size: 0.9em;">Enjoy this blog? Get notified of new posts by email:</span>
-<form action="https://gmail.us8.list-manage.com/subscribe/post?u=7adb81c57cf8983dbcbb39255&amp;id=44019f7bc6&amp;f_id=006609e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
-    <div id="mc_embed_signup_scroll">
-	
-        <div class="input-group mt-1 mb-2">
-        <input type="email" class="form-control" placeholder="Email Address" aria-label="Email Address" name="EMAIL" style="font-size: 0.8em; padding: .2em;">
-        </div>              
-
-	<div id="mce-responses" class="clear foot">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c79fb56a311ae347fbe916740_ec05dfca03" tabindex="-1" value=""></div>
-        <div class="optionalParent">
-            <div class="clear foot" style="display: flex; align-items: center; justify-content: center;">
-              
-              
-                <input type="submit" value="Subscribe" name="subscribe" style="min-width: 150px; font-size: 0.8em;" id="mc-embedded-subscribe" class="button btn btn-light btn-sm ms-auto me-auto">
-            </div>
-        </div>
-    </div>
-</form>
-</div>
-
-<!--End mc_embed_signup-->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -702,10 +883,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="holyrich/IT-Playground" data-repo-id="" data-category="Blog" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 
 

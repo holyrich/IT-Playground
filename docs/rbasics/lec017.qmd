@@ -1,0 +1,5 @@
+---
+title: "Working with Dates"
+---
+
+This lecture covers how to work with date and time data in R.

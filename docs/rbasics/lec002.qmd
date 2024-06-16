@@ -1,0 +1,123 @@
+---
+title: "Installing R and RStudio"
+---
+
+In this lecture, we will learn how to install R and RStudio on your computer. We will cover the installation process for both Windows and Mac. By the end of this lecture, you will have R and RStudio up and running, ready for data analysis and statistical computing.
+
+::: callout-note
+**Note:** Installing R and RStudio is straightforward. Follow the steps below, and if you encounter any difficulties, refer to the provided links or seek help from the community.
+:::
+
+## Downloading R
+
+### Step 1: Visit the CRAN Website
+
+Go to the [CRAN website](https://cran.r-project.org) to download the latest version of R. CRAN (The Comprehensive R Archive Network) is the official repository for R software and packages.
+
+### Step 2: Choose Your Operating System
+
+Select your operating system (Windows, Mac, or Linux) to download the appropriate installer.
+
+-   **Windows**: Click on "Download R for Windows" and then "base." Download the installer and run it.
+-   **Mac**: Click on "Download R for (Mac) OS X" and download the appropriate installer for your version of macOS.
+
+### Step 3: Install R
+
+Run the downloaded installer and follow the on-screen instructions to complete the installation.
+
+-   **Windows**: Double-click the installer and follow the prompts, clicking "Next" until the installation is complete.
+-   **Mac**: Open the downloaded `.pkg` file and follow the installation instructions.
+
+::: {.callout-note} ::: {.callout-note} If you need detailed instructions, refer to the [official R documentation](https://cran.r-project.org/doc/manuals/r-release/R-admin.html) or this helpful <a href="https://secondlife.lol/r-rstudio-install/" target="_blank" style="color:orange; font-weight:bold;">installation guide</a>. (Although second one is in Korean, you can right-click on the webpage body and use the translation menu.)\
+:::
+
+## Downloading and Installing RStudio
+
+### Step 1: Visit the RStudio Website
+
+Go to the [RStudio website](https://www.rstudio.com/products/rstudio/download/) to download the free version of RStudio Desktop.
+
+### Step 2: Choose Your Operating System
+
+Select your operating system (Windows, Mac, or Linux) to download the appropriate installer.
+
+-   **Windows**: Click on "Download RStudio for Windows" and download the installer.
+-   **Mac**: Click on "Download RStudio for Mac" and download the installer.
+
+### Step 3: Install RStudio
+
+Run the downloaded installer and follow the on-screen instructions to complete the installation.
+
+-   **Windows**: Double-click the installer and follow the prompts, clicking "Next" until the installation is complete.
+-   **Mac**: Open the downloaded `.dmg` file, drag the RStudio icon to the Applications folder, and follow any additional prompts.
+
+## Verifying Your Installation
+
+Once you have installed both R and RStudio, verify the installation by opening RStudio:
+
+1.  **Launch RStudio**:
+
+    -   On Windows, find RStudio in the Start menu and click to open.
+    -   On Mac, find RStudio in the Applications folder and double-click to open.
+
+2.  **Check the Console**:
+
+    -   The Console pane should display the R version information, confirming that R is properly installed.
+
+    ``` r
+    R version 4.x.x (YYYY-MM-DD) -- "Nickname"
+    ```
+
+3.  **Run a Simple Command**:
+
+    -   Type the following command in the Console and press `Enter` to ensure R is functioning correctly:
+
+    ``` r
+    print("Hello, R!")
+    ```
+
+    -   You should see the output `Hello, R!` in the Console.
+
+<style>
+img.centered {
+  border: 1px solid black;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figure {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+  text-align: center;
+}
+</style>
+<div class="figure">
+  <img src="images/consolepane.png" alt="console pane" class="centered">
+  <figcaption>console pane</figcaption>
+</div>
+
+## Troubleshooting
+
+If you encounter any issues during the installation, consider the following resources:
+
+-   **RStudio Support**: Visit the [RStudio Support](https://support.rstudio.com/hc/en-us) page for common troubleshooting steps and FAQs.
+-   **R Community**: Join forums like [RStudio Community](https://community.rstudio.com/) or [Stack Overflow](https://stackoverflow.com/questions/tagged/r) to ask questions and seek help from other R users.
+
+## Conclusion
+
+Congratulations! You have successfully installed R and RStudio on your computer. You are now ready to start writing and running R code. In the next lecture, we will explore the basic syntax of R and write our first R scripts.
+
+Stay tuned for more exciting content in the R Basics series!
+
+------------------------------------------------------------------------
+
+**Keywords**: Installing R, Installing RStudio, R installation guide, RStudio installation guide, R tutorial for beginners, how to install R, how to install RStudio

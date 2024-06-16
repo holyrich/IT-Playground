@@ -1,0 +1,5 @@
+---
+title: "Matrices"
+---
+
+In this lecture, we will learn about matrices in R, their creation, and operations on matrices.

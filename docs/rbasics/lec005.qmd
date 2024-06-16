@@ -1,0 +1,5 @@
+---
+title: "Vectors"
+---
+
+This lecture covers vectors in R, including how to create, manipulate, and use them in various operations.

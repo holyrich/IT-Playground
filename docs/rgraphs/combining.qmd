@@ -1,0 +1,404 @@
+---
+title: "Combining Multiple Plots"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "multiple plots", "combining plots"]
+
+description: "Learn how to combine multiple plots into a single visualization using R. This lecture covers essential techniques for arranging multiple plots using R."
+---
+
+
+
+# Combining Multiple Plots
+
+
+
+## Introduction
+
+
+
+Combining multiple plots into a single visualization allows you to compare and contrast different data sets and metrics effectively. In R, you can combine plots using various techniques, including base R, `gridExtra`, and `patchwork`. In this lecture, we will learn how to combine multiple plots using these methods.
+
+
+
+## Key Concepts
+
+
+
+### 1. Why Combine Plots?
+
+
+
+- Compare multiple data sets side-by-side.
+
+- Show different aspects of the same data.
+
+- Enhance the visual impact of your analysis.
+
+
+
+### 2. Methods for Combining Plots
+
+
+
+- Base R: Using `par()` and `layout()`.
+
+- `gridExtra`: Using `grid.arrange()`.
+
+- `patchwork`: Using the `+` operator.
+
+
+
+## Combining Plots in R
+
+
+
+### 1. Combining Plots with Base R
+
+
+
+You can use the `par()` function to combine plots in base R.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+set.seed(123)
+
+data1 <- rnorm(100)
+
+data2 <- rnorm(100, mean = 5)
+
+
+
+# Combining plots using par()
+
+par(mfrow = c(1, 2)) # Arrange plots in 1 row and 2 columns
+
+plot(data1, main = "Plot 1")
+
+plot(data2, main = "Plot 2")
+
+par(mfrow = c(1, 1)) # Reset to default
+
+```
+
+
+
+
+### 2. Combining Plots with gridExtra
+
+
+
+The `gridExtra` package provides the `grid.arrange()` function for arranging multiple plots.
+
+
+
+```r
+
+# Installing and loading gridExtra
+
+install.packages("gridExtra")
+
+library(gridExtra)
+
+
+
+# Creating sample ggplot2 plots
+
+library(ggplot2)
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+
+
+# Combining plots using grid.arrange()
+
+grid.arrange(p1, p2, ncol = 2)
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+library(gridExtra)
+
+library(ggplot2)
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+grid.arrange(p1, p2, ncol = 2)
+
+```
+
+
+
+### 3. Combining Plots with patchwork
+
+
+
+The `patchwork` package allows you to combine ggplot2 plots using the `+` operator.
+
+
+
+```r
+
+# Installing and loading patchwork
+
+install.packages("patchwork")
+
+library(patchwork)
+
+
+
+# Creating sample ggplot2 plots
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+
+
+# Combining plots using patchwork
+
+p1 + p2
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+library(patchwork)
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+p1 + p2
+
+```
+
+
+
+### 4. Customizing Layouts
+
+
+
+You can customize the layout and arrangement of multiple plots using advanced features of `gridExtra` and `patchwork`.
+
+
+
+#### Customizing Layout with gridExtra
+
+
+
+```r
+
+# Customizing layout with grid.arrange()
+
+grid.arrange(p1, p2, ncol = 1) # Arrange plots in 1 column
+
+grid.arrange(p1, p2, ncol = 2, heights = c(1, 2)) # Custom heights
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+grid.arrange(p1, p2, ncol = 1)
+
+grid.arrange(p1, p2, ncol = 2, heights = c(1, 2))
+
+```
+
+
+
+#### Customizing Layout with patchwork
+
+
+
+```r
+
+# Customizing layout with patchwork
+
+(p1 | p2) / (p1 | p2) # Arrange in a grid
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+(p1 | p2) / (p1 | p2)
+
+```
+
+
+
+## Example: Comprehensive Combining Plots
+
+
+
+Here's a comprehensive example of combining multiple plots using different methods in R.
+
+
+
+```r
+
+# Creating sample data
+
+data1 <- rnorm(100)
+
+data2 <- rnorm(100, mean = 5)
+
+
+
+# Combining plots with base R
+
+par(mfrow = c(1, 2))
+
+plot(data1, main = "Plot 1")
+
+plot(data2, main = "Plot 2")
+
+par(mfrow = c(1, 1))
+
+
+
+# Creating sample ggplot2 plots
+
+library(ggplot2)
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+
+
+# Combining plots with gridExtra
+
+library(gridExtra)
+
+grid.arrange(p1, p2, ncol = 2)
+
+
+
+# Combining plots with patchwork
+
+library(patchwork)
+
+p1 + p2
+
+
+
+# Customizing layout with gridExtra
+
+grid.arrange(p1, p2, ncol = 1)
+
+grid.arrange(p1, p2, ncol = 2, heights = c(1, 2))
+
+
+
+# Customizing layout with patchwork
+
+(p1 | p2) / (p1 | p2)
+
+```
+
+
+
+```{r}
+
+# Plot results
+
+par(mfrow = c(1, 2))
+
+plot(data1, main = "Plot 1")
+
+plot(data2, main = "Plot 2")
+
+par(mfrow = c(1, 1))
+
+
+
+library(gridExtra)
+
+library(ggplot2)
+
+p1 <- ggplot(data.frame(x = data1), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 1")
+
+p2 <- ggplot(data.frame(x = data2), aes(x = x)) + geom_histogram(binwidth = 0.5) + labs(title = "Histogram 2")
+
+grid.arrange(p1, p2, ncol = 2)
+
+
+
+library(patchwork)
+
+p1 + p2
+
+
+
+grid.arrange(p1, p2, ncol = 1)
+
+grid.arrange(p1, p2, ncol = 2, heights = c(1, 2))
+
+
+
+(p1 | p2) / (p1 | p2)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to combine multiple plots into a single visualization using R. We explored various techniques for combining plots using base R, `gridExtra`, and `patchwork`. Combining plots is essential for comparing data sets and enhancing the visual impact of your analysis.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [gridExtra package documentation](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html)
+
+- [patchwork package documentation](https://patchwork.data-imaginist.com/)
+
+- [ggplot2 documentation](https://ggplot2.tidyverse.org/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

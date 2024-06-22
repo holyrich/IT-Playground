@@ -1,0 +1,294 @@
+---
+title: "Pie Charts"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "pie charts"]
+
+description: "Learn how to create and customize pie charts in R. This lecture covers essential techniques for visualizing categorical data using pie charts in R."
+---
+
+
+
+## Introduction
+
+
+
+Pie charts are a common way to visualize the proportions of different categories in a dataset. They represent data as slices of a circle, with each slice corresponding to a category's proportion. In this lecture, we will learn how to create and customize pie charts in R.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is a Pie Chart?
+
+
+
+A pie chart is a circular graph divided into slices to illustrate numerical proportions. Each slice's size is proportional to the value it represents.
+
+
+
+### 2. When to Use Pie Charts
+
+
+
+Pie charts are best used for:
+
+- Displaying the proportions of categorical data.
+
+- Comparing parts of a whole.
+
+
+
+### 3. Customizing Pie Charts
+
+
+
+Customizing pie charts involves adding titles, labels, colors, and legends to enhance readability and interpretability.
+
+
+
+## Creating and Customizing Pie Charts
+
+
+
+### 1. Basic Pie Chart
+
+
+
+A basic pie chart displays the proportions of different categories.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+categories <- c("A", "B", "C", "D")
+
+counts <- c(23, 45, 12, 56)
+
+
+
+# Creating a basic pie chart
+
+pie(counts, labels = categories, main = "Basic Pie Chart")
+
+```
+
+
+
+
+
+### 2. Adding Colors
+
+
+
+You can add colors to the pie chart to differentiate between categories.
+
+
+
+```{r echo=TRUE}
+
+# Creating a pie chart with colors
+
+pie(counts, labels = categories, main = "Pie Chart with Colors", col = rainbow(length(categories)))
+
+```
+
+
+
+
+
+### 3. Adding Percentages
+
+
+
+Adding percentages to the pie chart slices provides more information about the proportions.
+
+
+
+```{r echo=TRUE}
+
+# Calculating percentages
+
+percentages <- round(counts / sum(counts) * 100)
+
+labels <- paste(categories, percentages, "%", sep = " ")
+
+
+
+# Creating a pie chart with percentages
+
+pie(counts, labels = labels, main = "Pie Chart with Percentages", col = rainbow(length(categories)))
+
+```
+
+
+
+
+
+
+### 4. Adding Legends
+
+
+
+Adding a legend helps in identifying the categories more easily.
+
+
+
+```{r echo=TRUE}
+
+# Creating a pie chart with legend
+
+pie(counts, labels = categories, main = "Pie Chart with Legend", col = rainbow(length(categories)))
+
+legend("topright", legend = categories, fill = rainbow(length(categories)))
+
+```
+
+
+
+
+
+
+### 5. Exploding Slices
+
+
+
+Exploding slices (pulling them out from the center) can highlight specific categories.
+
+
+
+```{r echo=TRUE}
+
+# Creating a pie chart with exploded slices
+
+pie(counts, labels = categories, main = "Pie Chart with Exploded Slices", col = rainbow(length(categories)), explode = 0.1)
+
+```
+
+
+
+```{r}
+
+# Set CRAN mirror
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# Check if plotrix is installed, if not, install it
+if (!requireNamespace("plotrix", quietly = TRUE)) {
+  install.packages("plotrix")
+}
+
+# Load plotrix library
+library(plotrix)
+
+# Creating sample data (make sure these are defined earlier in your document)
+categories <- c("A", "B", "C", "D")
+counts <- c(23, 45, 12, 56)
+
+# Creating a pie chart with exploded slices using the plotrix package
+pie3D(counts, labels = categories, main = "Pie Chart with Exploded Slices", 
+      col = rainbow(length(categories)), explode = 0.1)
+
+```
+
+
+
+## Example: Comprehensive Pie Chart Analysis
+
+
+
+Here's a comprehensive example of creating and customizing pie charts in R.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+categories <- c("A", "B", "C", "D")
+
+counts <- c(23, 45, 12, 56)
+
+
+
+# Basic pie chart
+
+pie(counts, labels = categories, main = "Basic Pie Chart")
+
+
+
+# Pie chart with colors
+
+pie(counts, labels = categories, main = "Pie Chart with Colors", col = rainbow(length(categories)))
+
+
+
+# Pie chart with percentages
+
+percentages <- round(counts / sum(counts) * 100)
+
+labels <- paste(categories, percentages, "%", sep = " ")
+
+pie(counts, labels = labels, main = "Pie Chart with Percentages", col = rainbow(length(categories)))
+
+
+
+# Pie chart with legend
+
+pie(counts, labels = categories, main = "Pie Chart with Legend", col = rainbow(length(categories)))
+
+legend("topright", legend = categories, fill = rainbow(length(categories)))
+
+
+
+# Pie chart with exploded slices using the plotrix package
+
+# Install the 'plotrix' package if not already installed
+
+install.packages("plotrix")
+
+library(plotrix)
+
+pie3D(counts, labels = categories, main = "Pie Chart with Exploded Slices", col = rainbow(length(categories)), explode = 0.1)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create and customize pie charts in R. We explored various techniques for adding colors, percentages, legends, and exploding slices. Pie charts are a useful tool for visualizing categorical data and understanding the proportions of different categories.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Pie Charts in R](https://www.datamentor.io/r-programming/pie-chart/)
+
+- [R Documentation on pie](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/pie)
+
+- [R for Data Science](https://r4ds.had.co.nz/data-visualization.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

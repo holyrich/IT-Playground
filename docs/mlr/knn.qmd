@@ -1,0 +1,343 @@
+---
+title: "k-Nearest Neighbors"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "k-Nearest Neighbors"]
+
+tags: ["R", "machine learning", "k-nearest neighbors", "data analysis", "coding in R"]
+
+description: "Learn how to perform k-Nearest Neighbors (k-NN) analysis in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing k-NN models in R."
+---
+
+
+
+## Introduction
+
+
+
+k-Nearest Neighbors (k-NN) is a simple, non-parametric, and lazy learning algorithm used for both classification and regression tasks. It works by finding the k nearest data points in the training set to a given input and making predictions based on the majority class (for classification) or average value (for regression) of these neighbors. In this lecture, we will learn how to perform k-NN analysis in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is k-Nearest Neighbors?
+
+
+
+k-NN makes predictions by identifying the k nearest neighbors to a query point and using their known values to predict the value for the query point. The choice of k, the number of neighbors, can significantly impact the model's performance.
+
+
+
+### 2. Advantages and Disadvantages
+
+
+
+**Advantages:**
+
+- Simple and intuitive.
+
+- No assumptions about data distribution.
+
+- Effective with large training datasets.
+
+
+
+**Disadvantages:**
+
+- Computationally intensive, especially with large datasets.
+
+- Sensitive to the choice of k and the distance metric.
+
+- Poor performance with high-dimensional data.
+
+
+
+## Performing k-NN Analysis in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `class` package for building k-NN models.
+
+
+
+```r
+
+# Installing the class package
+
+install.packages("class")
+
+```
+
+
+
+### 2. Building the Model
+
+
+
+You can build a k-NN model using the `knn()` function from the `class` package.
+
+
+
+```r
+
+# Loading the required package
+
+library(class)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Extracting features and labels
+
+train_features <- train_data[, c("x1", "x2")]
+
+train_labels <- train_data$y
+
+test_features <- test_data[, c("x1", "x2")]
+
+test_labels <- test_data$y
+
+
+
+# Building the k-NN model
+
+k <- 5
+
+predictions <- knn(train = train_features, test = test_features, cl = train_labels, k = k)
+
+print(predictions)
+
+```
+
+
+
+### 3. Evaluating the Model
+
+
+
+You can evaluate the model's performance using various metrics such as accuracy and confusion matrix.
+
+
+
+```r
+
+# Confusion Matrix
+
+confusion_matrix <- table(predictions, test_labels)
+
+print(confusion_matrix)
+
+
+
+# Calculating accuracy
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+### 4. Choosing the Optimal k
+
+
+
+The choice of k can significantly impact the performance of the k-NN algorithm. You can use cross-validation to select the optimal value of k.
+
+
+
+```r
+
+# Cross-validation to choose the optimal k
+
+accuracy_list <- sapply(1:20, function(k) {
+
+  predictions <- knn(train = train_features, test = test_features, cl = train_labels, k = k)
+
+  confusion_matrix <- table(predictions, test_labels)
+
+  accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+  return(accuracy)
+
+})
+
+
+
+# Plotting accuracy vs k
+
+plot(1:20, accuracy_list, type = "b", xlab = "Number of Neighbors (k)", ylab = "Accuracy", main = "Accuracy vs k")
+
+optimal_k <- which.max(accuracy_list)
+
+print(paste("Optimal k:", optimal_k))
+
+```
+
+
+
+## Example: Comprehensive k-NN Analysis
+
+
+
+Here's a comprehensive example of performing k-NN analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Extracting features and labels
+
+train_features <- train_data[, c("x1", "x2")]
+
+train_labels <- train_data$y
+
+test_features <- test_data[, c("x1", "x2")]
+
+test_labels <- test_data$y
+
+
+
+# Building the k-NN model
+
+library(class)
+
+k <- 5
+
+predictions <- knn(train = train_features, test = test_features, cl = train_labels, k = k)
+
+
+
+# Evaluating the model
+
+confusion_matrix <- table(predictions, test_labels)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+
+
+# Choosing the optimal k
+
+accuracy_list <- sapply(1:20, function(k) {
+
+  predictions <- knn(train = train_features, test = test_features, cl = train_labels, k = k)
+
+  confusion_matrix <- table(predictions, test_labels)
+
+  accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+  return(accuracy)
+
+})
+
+
+
+# Plotting accuracy vs k
+
+plot(1:20, accuracy_list, type = "b", xlab = "Number of Neighbors (k)", ylab = "Accuracy", main = "Accuracy vs k")
+
+optimal_k <- which.max(accuracy_list)
+
+print(paste("Optimal k:", optimal_k))
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform k-NN analysis in R, including building the model, evaluating its performance, making predictions, and selecting the optimal value of k. k-NN is a simple and effective algorithm for both classification and regression tasks, offering flexibility through the choice of k and distance metrics.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [k-Nearest Neighbors in R](https://www.datamentor.io/r-programming/knn/)
+
+- [R Documentation on class](https://www.rdocumentation.org/packages/class/versions/7.3-19)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

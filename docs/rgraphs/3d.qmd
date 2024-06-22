@@ -1,0 +1,416 @@
+---
+title: "3D Plots"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "3D plots", "plotly"]
+
+description: "Learn how to create 3D plots using the plotly package in R. This lecture covers essential techniques for visualizing data in three dimensions using plotly in R."
+---
+
+
+
+# 3D Plots
+
+
+
+## Introduction
+
+
+
+3D plots provide a way to visualize data in three dimensions, adding depth to your data visualizations. The plotly package in R enables the creation of interactive 3D plots with ease. In this lecture, we will learn how to create 3D plots using plotly in R.
+
+
+
+## Key Concepts
+
+
+
+### 1. What are 3D Plots?
+
+
+
+3D plots allow you to visualize data in three dimensions, where the x, y, and z axes represent different variables. This type of visualization is useful for understanding relationships between three variables and identifying patterns in multidimensional data.
+
+
+
+### 2. Advantages of 3D Plots
+
+
+
+- Enhanced data exploration.
+
+- Improved ability to identify patterns and relationships.
+
+- Interactive features for better data engagement.
+
+
+
+## Creating and Customizing 3D Plots with plotly
+
+
+
+### 1. Installing and Loading plotly
+
+
+
+If you haven't installed plotly yet, you can install it using the following command:
+
+
+
+```r
+
+install.packages("plotly")
+
+```
+
+
+
+Load the plotly package:
+
+
+
+```{r echo=TRUE}
+
+library(plotly)
+
+```
+
+
+
+### 2. Basic 3D Scatter Plot
+
+
+
+A basic 3D scatter plot in plotly can be created using the `plot_ly()` function with the `type` parameter set to `'scatter3d'`.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+set.seed(123)
+
+data <- data.frame(x = rnorm(100), y = rnorm(100), z = rnorm(100))
+
+
+
+# Creating a basic 3D scatter plot with plotly
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers')
+
+```
+
+
+
+
+### 3. Adding Titles and Labels
+
+
+
+You can add titles and labels to a 3D plotly plot using the `layout()` function.
+
+
+
+```r
+
+# Adding titles and labels
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers') %>%
+
+  layout(title = 'Basic 3D Scatter Plot with Titles and Labels', 
+
+         scene = list(
+
+           xaxis = list(title = 'X Axis'),
+
+           yaxis = list(title = 'Y Axis'),
+
+           zaxis = list(title = 'Z Axis')
+
+         ))
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers') %>%
+
+  layout(title = 'Basic 3D Scatter Plot with Titles and Labels', 
+
+         scene = list(
+
+           xaxis = list(title = 'X Axis'),
+
+           yaxis = list(title = 'Y Axis'),
+
+           zaxis = list(title = 'Z Axis')
+
+         ))
+
+```
+
+
+
+### 4. Customizing Colors and Symbols
+
+
+
+You can customize colors and symbols using the `marker` parameter.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data with groups
+
+data$group <- sample(c("Group 1", "Group 2"), 100, replace = TRUE)
+
+
+
+# Customizing colors and symbols
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers', 
+
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+```
+
+
+
+
+### 5. Creating 3D Surface Plots
+
+
+
+A 3D surface plot visualizes data as a three-dimensional surface.
+
+
+
+```r
+
+# Creating sample data for a 3D surface plot
+
+x <- seq(-10, 10, length.out = 100)
+
+y <- seq(-10, 10, length.out = 100)
+
+z <- outer(x, y, function(x, y) sin(sqrt(x^2 + y^2)))
+
+
+
+# Creating a 3D surface plot
+
+plot_ly(x = ~x, y = ~y, z = ~z, type = 'surface')
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+x <- seq(-10, 10, length.out = 100)
+
+y <- seq(-10, 10, length.out = 100)
+
+z <- outer(x, y, function(x, y) sin(sqrt(x^2 + y^2)))
+
+plot_ly(x = ~x, y = ~y, z = ~z, type = 'surface')
+
+```
+
+
+
+### 6. Adding Hover Text
+
+
+
+You can add hover text to provide more information when the user hovers over a data point.
+
+
+
+```r
+
+# Adding hover text
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Z:", z, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Z:", z, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+## Example: Comprehensive 3D Plotting with plotly
+
+
+
+Here's a comprehensive example of creating and customizing 3D plots using plotly in R.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+data <- data.frame(x = rnorm(100), y = rnorm(100), z = rnorm(100), group = sample(c("Group 1", "Group 2"), 100, replace = TRUE))
+
+
+
+# Basic 3D scatter plot
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers')
+
+
+
+# 3D scatter plot with titles and labels
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers') %>%
+
+  layout(title = 'Basic 3D Scatter Plot with Titles and Labels', 
+
+         scene = list(
+
+           xaxis = list(title = 'X Axis'),
+
+           yaxis = list(title = 'Y Axis'),
+
+           zaxis = list(title = 'Z Axis')
+
+         ))
+
+
+
+# Customizing colors and symbols
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers', 
+
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+
+
+# 3D surface plot
+
+x <- seq(-10, 10, length.out = 100)
+
+y <- seq(-10, 10, length.out = 100)
+
+z <- outer(x, y, function(x, y) sin(sqrt(x^2 + y^2)))
+
+plot_ly(x = ~x, y = ~y, z = ~z, type = 'surface')
+
+
+
+# 3D scatter plot with hover text
+
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Z:", z, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+```{r}
+
+library(plotly)
+
+# Sample Data
+data <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100),
+  z = rnorm(100),
+  group = sample(c("A", "B"), 100, replace = TRUE)
+)
+
+
+# Basic 3D Scatter Plot 
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers')
+
+# Scatter Plot with Titles
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers') %>%
+  layout(
+    title = '3D Scatter Plot with Titles and Labels',
+    scene = list(
+      xaxis = list(title = 'X Axis'),
+      yaxis = list(title = 'Y Axis'),
+      zaxis = list(title = 'Z Axis')
+    )
+  )
+
+# Scatter Plot with Colors and Symbols
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers',
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+
+# Surface Plot
+x <- seq(-10, 10, length.out = 100)
+y <- seq(-10, 10, length.out = 100)
+z <- outer(x, y, function(x, y) sin(sqrt(x^2 + y^2)))
+
+plot_ly(x = ~x, y = ~y, z = ~z, type = 'surface')
+
+
+
+# Interactive Hover Text
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'markers',
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Z:", z, "<br>Group:", group), hoverinfo = 'text')
+
+
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create 3D plots using the plotly package in R. We explored various techniques for adding titles, labels, colors, symbols, and hover text. We also learned how to create 3D surface plots and convert ggplot2 plots to plotly for enhanced interactivity. 3D plots are a powerful tool for visualizing data in three dimensions and enhancing data exploration.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [plotly for R Documentation](https://plotly.com/r/)
+
+- [R for Data Science](https://r4ds.had.co.nz/data-visualization.html)
+
+- [Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

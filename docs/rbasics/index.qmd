@@ -7,63 +7,44 @@ Welcome to the R Basics section! This series of tutorials is designed to introdu
 ## Contents
 
 -   [Introduction to R](lec001.qmd)
-    - Learn what R is, its history, and its applications in various fields.
-
+    -   Learn what R is, its history, and its applications in various fields.
 -   [Installing R and RStudio](lec002.qmd)
-    - Step-by-step instructions on how to install R and RStudio on your computer, making it easy to get started with R programming.
-
+    -   Step-by-step instructions on how to install R and RStudio on your computer, making it easy to get started with R programming.
 -   [Basic R Syntax](lec003.qmd)
-    - An introduction to the basic syntax and structure of R code, including how to write and run simple R scripts.
-
+    -   An introduction to the basic syntax and structure of R code, including how to write and run simple R scripts.
 -   [Data Types in R](lec004.qmd)
-    - Explore the different types of data in R, such as numeric, character, and logical, and understand how to work with them.
-
+    -   Explore the different types of data in R, such as numeric, character, and logical, and understand how to work with them.
 -   [Vectors](lec005.qmd)
-    - Learn about vectors, a fundamental data structure in R, and how to create, manipulate, and use them in various operations.
-
+    -   Learn about vectors, a fundamental data structure in R, and how to create, manipulate, and use them in various operations.
 -   [Matrices](lec006.qmd)
-    - Discover matrices in R, how to create them, and perform operations on matrix data.
-
+    -   Discover matrices in R, how to create them, and perform operations on matrix data.
 -   [Lists](lec007.qmd)
-    - Understand lists, a versatile data structure in R, including how to create, access, and manipulate list elements.
-
+    -   Understand lists, a versatile data structure in R, including how to create, access, and manipulate list elements.
 -   [Data Frames](lec008.qmd)
-    - Get to know data frames, essential for storing tabular data in R, and learn how to work with them effectively.
-
+    -   Get to know data frames, essential for storing tabular data in R, and learn how to work with them effectively.
 -   [Factors](lec009.qmd)
-    - Introduction to factors, which are used for handling categorical data in R, including how to create and use them.
-
+    -   Introduction to factors, which are used for handling categorical data in R, including how to create and use them.
 -   [Basic Operations](lec010.qmd)
-    - Learn about basic arithmetic, relational, and logical operations in R.
-
+    -   Learn about basic arithmetic, relational, and logical operations in R.
 -   [Functions in R](lec011.qmd)
-    - Discover how to define and use functions in R to encapsulate reusable code.
-
+    -   Discover how to define and use functions in R to encapsulate reusable code.
 -   [Control Structures](lec012.qmd)
-    - Understand control structures like if-else statements and loops, which are essential for controlling the flow of your R programs.
-
+    -   Understand control structures like if-else statements and loops, which are essential for controlling the flow of your R programs.
 -   [Importing Data](lec013.qmd)
-    - Learn how to import data into R from various sources, such as CSV and Excel files, to start your data analysis.
-
+    -   Learn how to import data into R from various sources, such as CSV and Excel files, to start your data analysis.
 -   [Data Cleaning](lec014.qmd)
-    - Techniques for cleaning and preparing your data in R to ensure it's ready for analysis.
-
+    -   Techniques for cleaning and preparing your data in R to ensure it's ready for analysis.
 -   [Data Manipulation with dplyr](lec015.qmd)
-    - Introduction to the `dplyr` package, which simplifies data manipulation tasks like filtering, selecting, and summarizing data.
-
+    -   Introduction to the `dplyr` package, which simplifies data manipulation tasks like filtering, selecting, and summarizing data.
 -   [String Manipulation](lec016.qmd)
-    - Learn how to manipulate and work with text data in R using various string functions.
-
+    -   Learn how to manipulate and work with text data in R using various string functions.
 -   [Working with Dates](lec017.qmd)
-    - Discover how to handle date and time data in R, including parsing and formatting dates.
-
+    -   Discover how to handle date and time data in R, including parsing and formatting dates.
 -   [Descriptive Statistics](lec018.qmd)
-    - Learn how to calculate and interpret descriptive statistics, such as mean, median, and standard deviation, in R.
-
+    -   Learn how to calculate and interpret descriptive statistics, such as mean, median, and standard deviation, in R.
 -   [Introduction to Packages](lec019.qmd)
-    - Understand how to extend R's functionality by installing and using packages from CRAN and other repositories.
-
+    -   Understand how to extend R's functionality by installing and using packages from CRAN and other repositories.
 -   [Exporting Data](lec020.qmd)
-    - Learn how to export your data from R to various formats, such as CSV and Excel files, for sharing and reporting.
+    -   Learn how to export your data from R to various formats, such as CSV and Excel files, for sharing and reporting.
 
 We hope you find these tutorials helpful as you embark on your journey to learn R programming. Let's get started!

@@ -1,0 +1,279 @@
+---
+title: "Train-Test Split"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Data Splitting"]
+
+tags: ["R", "machine learning", "train-test split", "data splitting", "coding in R"]
+
+description: "Learn how to split data into training and testing sets in R. This lecture covers essential techniques for preparing data for machine learning models."
+---
+
+
+
+## Introduction
+
+
+
+In this lecture, we will learn how to split data into training and testing sets in R. Splitting your data is a crucial step in machine learning, as it allows you to train your model on one subset of the data and evaluate its performance on another, ensuring that the model generalizes well to unseen data.
+
+
+
+## Key Concepts
+
+
+
+### 1. Importance of Train-Test Split
+
+
+
+The main reasons for splitting your data into training and testing sets are:
+
+
+
+- **Prevent Overfitting**: By evaluating the model on a separate test set, you can check if the model overfits the training data.
+
+- **Model Validation**: It helps in validating the model's performance on unseen data, giving a better estimate of how the model will perform in real-world scenarios.
+
+
+
+### 2. Proportion of Split
+
+
+
+A common practice is to split the data into 70-80% for training and 20-30% for testing. The exact proportions can vary based on the size of your dataset and the specific use case.
+
+
+
+## Splitting Data in R
+
+
+
+### 1. Using base R
+
+
+
+You can use base R functions to split the data into training and testing sets.
+
+
+
+```r
+
+# Sample data
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = rnorm(100)
+
+)
+
+data$z <- 3 * data$x + 2 * data$y + rnorm(100)
+
+
+
+# Splitting the data
+
+train_indices <- sample(seq_len(nrow(data)), size = 0.7 * nrow(data))
+
+train_data <- data[train_indices, ]
+
+test_data <- data[-train_indices, ]
+
+
+
+print(dim(train_data))  # Output: 70 3
+
+print(dim(test_data))   # Output: 30 3
+
+```
+
+
+
+### 2. Using the caret Package
+
+
+
+The `caret` package provides a convenient function `createDataPartition()` for splitting data.
+
+
+
+```r
+
+# Loading the caret package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = rnorm(100),
+
+  z = 3 * rnorm(100) + 2 * rnorm(100) + rnorm(100)
+
+)
+
+
+
+# Splitting the data
+
+trainIndex <- createDataPartition(data$z, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+print(dim(train_data))  # Output: 70 3
+
+print(dim(test_data))   # Output: 30 3
+
+```
+
+
+
+### 3. Using the caTools Package
+
+
+
+The `caTools` package provides the `sample.split()` function for splitting data.
+
+
+
+```r
+
+# Installing and loading the caTools package
+
+install.packages("caTools")
+
+library(caTools)
+
+
+
+# Splitting the data
+
+set.seed(123)
+
+split <- sample.split(data$z, SplitRatio = 0.7)
+
+train_data <- subset(data, split == TRUE)
+
+test_data <- subset(data, split == FALSE)
+
+
+
+print(dim(train_data))  # Output: 70 3
+
+print(dim(test_data))   # Output: 30 3
+
+```
+
+
+
+## Example: Comprehensive Train-Test Split
+
+
+
+Here's an example of a comprehensive train-test split using the `caret` package.
+
+
+
+```r
+
+# Loading the caret package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = rnorm(100),
+
+  z = 3 * rnorm(100) + 2 * rnorm(100) + rnorm(100)
+
+)
+
+
+
+# Splitting the data
+
+trainIndex <- createDataPartition(data$z, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Training a simple linear model
+
+model <- train(z ~ x + y, data = train_data, method = "lm")
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Evaluating the model's performance
+
+mse <- mean((test_data$z - predictions)^2)
+
+print(paste("Mean Squared Error:", mse))
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to split data into training and testing sets in R using base R functions, the `caret` package, and the `caTools` package. Splitting your data is a crucial step in building machine learning models, ensuring that they generalize well to unseen data.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Train-Test Split in R](https://www.datamentor.io/r-programming/train-test-split/)
+
+- [R Documentation on Data Splitting](https://www.rdocumentation.org/)
+
+- [caret Package Documentation](https://topepo.github.io/caret/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

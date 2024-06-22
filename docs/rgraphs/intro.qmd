@@ -1,0 +1,271 @@
+---
+title: "Introduction to R Graphics"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "base plotting system"]
+
+description: "Learn the basics of R graphics, including how to create and customize basic plots using the base R plotting system. This lecture covers essential techniques for visualizing data in R."
+---
+
+
+
+## Introduction
+
+
+
+Data visualization is a crucial aspect of data analysis, allowing us to explore, understand, and communicate insights from data. R offers a rich ecosystem for creating graphics, with powerful tools and packages that enable the creation of a wide variety of plots. In this lecture, we will introduce the basics of R graphics, focusing on the base R plotting system.
+
+
+
+## Key Concepts
+
+
+
+### 1. The Base R Plotting System
+
+
+
+The base R plotting system provides a simple and flexible way to create a wide range of plots. It is built into R and does not require additional packages, making it a great starting point for creating visualizations.
+
+
+
+### 2. Common Plot Types
+
+
+
+- **Scatter Plot**: Displays the relationship between two numerical variables.
+
+- **Line Chart**: Shows trends over time or ordered categories.
+
+- **Bar Plot**: Represents categorical data with rectangular bars.
+
+- **Histogram**: Visualizes the distribution of a numerical variable.
+
+- **Box Plot**: Summarizes the distribution of a numerical variable using five-number summary.
+
+
+
+## Creating Basic Plots
+
+
+
+### 1. Scatter Plot
+
+
+
+A scatter plot displays the relationship between two numerical variables.
+
+
+
+```{r}
+
+# Creating sample data
+
+set.seed(123)
+
+x <- rnorm(100)
+
+y <- rnorm(100)
+
+
+
+# Creating a scatter plot
+
+plot(x, y, main = "Scatter Plot", xlab = "X Axis", ylab = "Y Axis", pch = 19, col = "blue")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(x, y, main = "Scatter Plot", xlab = "X Axis", ylab = "Y Axis", pch = 19, col = "blue")
+
+```
+
+
+
+### 2. Line Chart
+
+
+
+A line chart shows trends over time or ordered categories.
+
+
+
+```{r}
+
+# Creating sample data
+
+time <- 1:100
+
+values <- cumsum(rnorm(100))
+
+
+
+# Creating a line chart
+
+plot(time, values, type = "l", main = "Line Chart", xlab = "Time", ylab = "Values", col = "red")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(time, values, type = "l", main = "Line Chart", xlab = "Time", ylab = "Values", col = "red")
+
+```
+
+
+
+### 3. Bar Plot
+
+
+
+A bar plot represents categorical data with rectangular bars.
+
+
+
+```{r}
+
+# Creating sample data
+
+categories <- c("A", "B", "C", "D")
+
+counts <- c(23, 45, 12, 56)
+
+
+
+# Creating a bar plot
+
+barplot(counts, names.arg = categories, main = "Bar Plot", xlab = "Category", ylab = "Count", col = "green")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+barplot(counts, names.arg = categories, main = "Bar Plot", xlab = "Category", ylab = "Count", col = "green")
+
+```
+
+
+
+### 4. Histogram
+
+
+
+A histogram visualizes the distribution of a numerical variable.
+
+
+
+```{r}
+
+# Creating sample data
+
+data <- rnorm(1000)
+
+
+
+# Creating a histogram
+
+hist(data, main = "Histogram", xlab = "Value", ylab = "Frequency", col = "purple", breaks = 30)
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+hist(data, main = "Histogram", xlab = "Value", ylab = "Frequency", col = "purple", breaks = 30)
+
+```
+
+
+
+### 5. Box Plot
+
+
+
+A box plot summarizes the distribution of a numerical variable using the five-number summary.
+
+
+
+```r
+
+# Creating sample data
+
+data <- list(
+
+  Group1 = rnorm(100, mean = 5),
+
+  Group2 = rnorm(100, mean = 10),
+
+  Group3 = rnorm(100, mean = 15)
+
+)
+
+
+
+# Creating a box plot
+
+boxplot(data, main = "Box Plot", xlab = "Group", ylab = "Value", col = c("orange", "yellow", "cyan"))
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+boxplot(data, main = "Box Plot", xlab = "Group", ylab = "Value", col = c("orange", "yellow", "cyan"))
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we introduced the basics of R graphics using the base R plotting system. We covered how to create and customize various types of plots, including scatter plots, line charts, bar plots, histograms, and box plots. These basic techniques form the foundation for more advanced data visualization in R.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [R Graphics Cookbook](https://r-graphics.org/)
+
+- [R Documentation on Base Graphics](https://www.rdocumentation.org/packages/graphics/versions/3.6.2)
+
+- [R for Data Science](https://r4ds.had.co.nz/visualize.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

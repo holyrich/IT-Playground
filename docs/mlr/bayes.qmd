@@ -1,0 +1,324 @@
+---
+title: "Naive Bayes"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Naive Bayes"]
+
+tags: ["R", "machine learning", "naive bayes", "data analysis", "coding in R"]
+
+description: "Learn how to perform Naive Bayes analysis in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing Naive Bayes models in R."
+---
+
+
+## Introduction
+
+
+
+Naive Bayes is a simple yet powerful probabilistic classifier based on Bayes' Theorem. It assumes that the features are conditionally independent given the class label, which is often not true in practice but works well in many real-world situations. In this lecture, we will learn how to perform Naive Bayes analysis in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is Naive Bayes?
+
+
+
+Naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' Theorem with strong (naive) independence assumptions between the features. The formula for Bayes' Theorem is:
+
+
+
+\[ P(Y|X) = \frac{P(X|Y) \cdot P(Y)}{P(X)} \]
+
+
+
+where:
+
+- \( P(Y|X) \) is the posterior probability of class \( Y \) given predictor \( X \).
+
+- \( P(X|Y) \) is the likelihood of predictor \( X \) given class \( Y \).
+
+- \( P(Y) \) is the prior probability of class \( Y \).
+
+- \( P(X) \) is the prior probability of predictor \( X \).
+
+
+
+### 2. Assumptions
+
+
+
+The main assumption of Naive Bayes is the conditional independence of features given the class label. This assumption simplifies the computation but is often not true in practice. Despite this, Naive Bayes performs well in many applications, especially text classification.
+
+
+
+## Performing Naive Bayes Analysis in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `e1071` package for building Naive Bayes models.
+
+
+
+```r
+
+# Installing the e1071 package
+
+install.packages("e1071")
+
+```
+
+
+
+### 2. Building the Model
+
+
+
+You can build a Naive Bayes model using the `naiveBayes()` function from the `e1071` package.
+
+
+
+```r
+
+# Loading the required package
+
+library(e1071)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the Naive Bayes model
+
+model <- naiveBayes(y ~ x1 + x2, data = train_data)
+
+print(model)
+
+```
+
+
+
+### 3. Evaluating the Model
+
+
+
+You can evaluate the model's performance using various metrics such as accuracy and confusion matrix.
+
+
+
+```r
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Confusion Matrix
+
+confusion_matrix <- table(predictions, test_data$y)
+
+print(confusion_matrix)
+
+
+
+# Calculating accuracy
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+### 4. Handling Continuous Features
+
+
+
+Naive Bayes in `e1071` handles continuous features by assuming they follow a Gaussian (normal) distribution.
+
+
+
+```r
+
+# Example with continuous features
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the Naive Bayes model
+
+model <- naiveBayes(y ~ x1 + x2, data = train_data)
+
+print(model)
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Evaluating the model
+
+confusion_matrix <- table(predictions, test_data$y)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+## Example: Comprehensive Naive Bayes Analysis
+
+
+
+Here's a comprehensive example of performing Naive Bayes analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the Naive Bayes model
+
+library(e1071)
+
+model <- naiveBayes(y ~ x1 + x2, data = train_data)
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Evaluating the model
+
+confusion_matrix <- table(predictions, test_data$y)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform Naive Bayes analysis in R, including building the model, evaluating its performance, making predictions, and handling continuous features. Naive Bayes is a simple yet effective algorithm for classification tasks, especially when the assumption of feature independence is approximately true.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Naive Bayes in R](https://www.datamentor.io/r-programming/naive-bayes/)
+
+- [R Documentation on e1071](https://www.rdocumentation.org/packages/e1071/versions/1.7-3)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

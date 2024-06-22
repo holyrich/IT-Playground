@@ -1,0 +1,290 @@
+---
+title: "Linear Regression"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Linear Regression"]
+
+tags: ["R", "machine learning", "linear regression", "data analysis", "coding in R"]
+
+description: "Learn how to perform linear regression in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing linear regression models in R."
+---
+
+
+## Introduction
+
+
+
+Linear regression is a fundamental statistical technique used to model the relationship between a dependent variable and one or more independent variables. In this lecture, we will learn how to perform linear regression in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is Linear Regression?
+
+
+
+Linear regression aims to find the best-fitting straight line through the data points that predicts the dependent variable based on the independent variables. The equation of a simple linear regression line is:
+
+
+
+\[ y = \beta_0 + \beta_1 x + \epsilon \]
+
+
+
+where:
+
+- \( y \) is the dependent variable.
+
+- \( \beta_0 \) is the intercept.
+
+- \( \beta_1 \) is the slope.
+
+- \( x \) is the independent variable.
+
+- \( \epsilon \) is the error term.
+
+
+
+### 2. Assumptions of Linear Regression
+
+
+
+For linear regression to provide reliable results, the following assumptions must be met:
+
+- Linearity: The relationship between the dependent and independent variables is linear.
+
+- Independence: Observations are independent of each other.
+
+- Homoscedasticity: The residuals have constant variance at all levels of the independent variable.
+
+- Normality: The residuals are normally distributed.
+
+
+
+## Performing Linear Regression in R
+
+
+
+### 1. Building the Model
+
+
+
+You can build a linear regression model using the `lm()` function in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = 3 * rnorm(100) + 2 * rnorm(100) + rnorm(100)
+
+)
+
+
+
+# Building the linear regression model
+
+model <- lm(y ~ x, data = data)
+
+summary(model)
+
+```
+
+
+
+### 2. Evaluating the Model
+
+
+
+You can evaluate the model's performance using various metrics such as R-squared, adjusted R-squared, and residual standard error.
+
+
+
+```r
+
+# Model summary
+
+summary(model)
+
+```
+
+
+
+### 3. Making Predictions
+
+
+
+You can use the model to make predictions on new data.
+
+
+
+```r
+
+# Creating new data for prediction
+
+new_data <- data.frame(x = c(-1, 0, 1))
+
+
+
+# Making predictions
+
+predictions <- predict(model, newdata = new_data)
+
+print(predictions)
+
+```
+
+
+
+### 4. Plotting the Regression Line
+
+
+
+You can visualize the regression line along with the data points using the `ggplot2` package.
+
+
+
+```r
+
+# Installing and loading ggplot2
+
+install.packages("ggplot2")
+
+library(ggplot2)
+
+
+
+# Plotting the regression line
+
+ggplot(data, aes(x = x, y = y)) +
+
+  geom_point() +
+
+  geom_smooth(method = "lm", se = FALSE, col = "red") +
+
+  labs(title = "Linear Regression", x = "Independent Variable (x)", y = "Dependent Variable (y)")
+
+```
+
+
+
+## Example: Comprehensive Linear Regression Analysis
+
+
+
+Here's a comprehensive example of performing linear regression analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = 3 * rnorm(100) + 2 * rnorm(100) + rnorm(100)
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the linear regression model
+
+model <- lm(y ~ x, data = train_data)
+
+
+
+# Evaluating the model
+
+summary(model)
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Calculating Mean Squared Error
+
+mse <- mean((test_data$y - predictions)^2)
+
+print(paste("Mean Squared Error:", mse))
+
+
+
+# Plotting the regression line
+
+library(ggplot2)
+
+ggplot(train_data, aes(x = x, y = y)) +
+
+  geom_point() +
+
+  geom_smooth(method = "lm", se = FALSE, col = "red") +
+
+  labs(title = "Linear Regression", x = "Independent Variable (x)", y = "Dependent Variable (y)")
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform linear regression in R, including building the model, evaluating its performance, making predictions, and visualizing the results. Linear regression is a powerful tool for understanding relationships between variables and making predictions based on those relationships.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Linear Regression in R](https://www.datamentor.io/r-programming/linear-regression/)
+
+- [R Documentation on Linear Models](https://www.rdocumentation.org/)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

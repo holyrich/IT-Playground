@@ -1,0 +1,566 @@
+---
+title: "Text Mining and NLP"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Text Mining", "NLP"]
+
+tags: ["R", "machine learning", "text mining", "natural language processing", "data analysis", "coding in R"]
+
+description: "Learn how to perform text mining and natural language processing (NLP) in R, including data preparation, model building, and evaluation. This lecture covers essential techniques for text analysis in R."
+---
+
+## Introduction
+
+Text mining and natural language processing (NLP) involve extracting meaningful information from text data. These techniques are widely used in various applications such as sentiment analysis, topic modeling, and text classification. In this lecture, we will learn how to perform text mining and NLP in R, including data preparation, model building, and evaluation.
+
+## Key Concepts
+
+### 1. What is Text Mining and NLP?
+
+Text mining is the process of extracting useful information from text. NLP involves the interaction between computers and human language, aiming to read, decipher, understand, and make sense of human languages in a valuable way.
+
+### 2. Applications of Text Mining and NLP
+
+-   **Sentiment Analysis**: Determining the sentiment expressed in text.
+
+-   **Topic Modeling**: Identifying the main topics in a collection of documents.
+
+-   **Text Classification**: Categorizing text into predefined categories.
+
+-   **Named Entity Recognition (NER)**: Identifying and classifying entities in text.
+
+## Performing Text Mining and NLP in R
+
+### 1. Installing Required Packages
+
+We will use the `tm`, `textclean`, and `tidytext` packages for text mining and NLP.
+
+``` r
+
+# Installing required packages
+
+install.packages("tm")
+
+install.packages("textclean")
+
+install.packages("tidytext")
+```
+
+### 2. Data Preparation
+
+Preparing text data involves cleaning and preprocessing steps such as removing stop words, punctuation, and stemming.
+
+``` r
+
+# Loading the required packages
+
+library(tm)
+
+library(textclean)
+
+library(tidytext)
+
+
+
+# Sample text data
+
+texts <- c("This is the first document.", "This document is the second document.", "And this is the third one.")
+
+
+
+# Creating a corpus
+
+corpus <- VCorpus(VectorSource(texts))
+
+
+
+# Cleaning the text data
+
+corpus <- tm_map(corpus, content_transformer(tolower))
+
+corpus <- tm_map(corpus, removePunctuation)
+
+corpus <- tm_map(corpus, removeNumbers)
+
+corpus <- tm_map(corpus, removeWords, stopwords("en"))
+
+corpus <- tm_map(corpus, stripWhitespace)
+
+corpus <- tm_map(corpus, stemDocument)
+
+
+
+# Inspecting the cleaned text
+
+inspect(corpus)
+```
+```{r echo=FALSE}
+
+# Loading the required packages
+
+library(tm)
+
+library(textclean)
+
+library(tidytext)
+
+
+
+# Sample text data
+
+texts <- c("This is the first document.", "This document is the second document.", "And this is the third one.")
+
+
+
+# Creating a corpus
+
+corpus <- VCorpus(VectorSource(texts))
+
+
+
+# Cleaning the text data
+
+corpus <- tm_map(corpus, content_transformer(tolower))
+
+corpus <- tm_map(corpus, removePunctuation)
+
+corpus <- tm_map(corpus, removeNumbers)
+
+corpus <- tm_map(corpus, removeWords, stopwords("en"))
+
+corpus <- tm_map(corpus, stripWhitespace)
+
+corpus <- tm_map(corpus, stemDocument)
+
+
+
+# Inspecting the cleaned text
+
+inspect(corpus)
+```
+
+### 3. Creating a Document-Term Matrix
+
+A document-term matrix is a matrix where rows represent documents and columns represent terms (words), with the values indicating the frequency of terms in the documents.
+
+``` r
+
+# Creating a document-term matrix
+
+dtm <- DocumentTermMatrix(corpus)
+
+print(dtm)
+```
+```{r echo=FALSE}
+# Creating a document-term matrix
+
+dtm <- DocumentTermMatrix(corpus)
+
+print(dtm)
+```
+
+### 4. Performing Text Analysis
+
+You can perform various text analysis tasks such as sentiment analysis and topic modeling.
+
+#### Sentiment Analysis
+
+``` r
+
+# Loading sentiment lexicons
+
+library(textclean)
+
+library(dplyr)
+
+
+
+# Sample text data
+
+texts <- data.frame(text = c("I love this product!", "This is the worst experience ever.", "I am very happy with the service."))
+
+
+
+# Cleaning the text data
+
+texts$text <- tolower(texts$text)
+
+texts$text <- replace_contraction(texts$text)
+
+texts$text <- replace_symbol(texts$text)
+
+texts$text <- replace_ordinal(texts$text)
+
+texts$text <- replace_number(texts$text)
+
+texts$text <- replace_internet_slang(texts$text)
+
+texts$text <- replace_emoticon(texts$text)
+
+
+
+# Tokenizing the text data
+
+tokens <- texts %>%
+
+  unnest_tokens(word, text)
+
+
+
+# Performing sentiment analysis
+
+sentiment <- tokens %>%
+
+  inner_join(get_sentiments("bing")) %>%
+
+  count(word, sentiment, sort = TRUE)
+
+
+
+print(sentiment)
+```
+```{r echo=FALSE}
+# Loading sentiment lexicons
+
+library(textclean)
+
+library(dplyr)
+
+
+
+# Sample text data
+
+texts <- data.frame(text = c("I love this product!", "This is the worst experience ever.", "I am very happy with the service."))
+
+
+
+# Cleaning the text data
+
+texts$text <- tolower(texts$text)
+
+texts$text <- replace_contraction(texts$text)
+
+texts$text <- replace_symbol(texts$text)
+
+texts$text <- replace_ordinal(texts$text)
+
+texts$text <- replace_number(texts$text)
+
+texts$text <- replace_internet_slang(texts$text)
+
+texts$text <- replace_emoticon(texts$text)
+
+
+
+# Tokenizing the text data
+
+tokens <- texts %>%
+
+  unnest_tokens(word, text)
+
+
+
+# Performing sentiment analysis
+
+sentiment <- tokens %>%
+
+  inner_join(get_sentiments("bing")) %>%
+
+  count(word, sentiment, sort = TRUE)
+
+
+
+print(sentiment)
+
+```
+
+#### Topic Modeling
+
+``` r
+
+# Installing the topicmodels package
+
+install.packages("topicmodels")
+
+library(topicmodels)
+
+
+
+# Performing topic modeling
+
+lda_model <- LDA(dtm, k = 2, control = list(seed = 123))
+
+topics <- tidy(lda_model, matrix = "beta")
+
+
+
+# Displaying the top terms in each topic
+
+top_terms <- topics %>%
+
+  group_by(topic) %>%
+
+  slice_max(beta, n = 10) %>%
+
+  ungroup() %>%
+
+  arrange(topic, -beta)
+
+
+
+print(top_terms)
+```
+```{r echo=FALSE}
+# Installing the topicmodels package
+
+
+library(topicmodels)
+
+
+
+# Performing topic modeling
+
+lda_model <- LDA(dtm, k = 2, control = list(seed = 123))
+
+topics <- tidy(lda_model, matrix = "beta")
+
+
+
+# Displaying the top terms in each topic
+
+top_terms <- topics %>%
+
+  group_by(topic) %>%
+
+  slice_max(beta, n = 10) %>%
+
+  ungroup() %>%
+
+  arrange(topic, -beta)
+
+
+
+print(top_terms)
+```
+
+## Example: Comprehensive Text Mining and NLP Analysis
+
+Here's a comprehensive example of performing text mining and NLP in R.
+
+``` r
+
+# Loading required packages
+
+library(tm)
+
+library(textclean)
+
+library(tidytext)
+
+library(dplyr)
+
+library(topicmodels)
+
+
+
+# Sample text data
+
+texts <- c("I love this product!", "This is the worst experience ever.", "I am very happy with the service.")
+
+
+
+# Creating a corpus
+
+corpus <- VCorpus(VectorSource(texts))
+
+
+
+# Cleaning the text data
+
+corpus <- tm_map(corpus, content_transformer(tolower))
+
+corpus <- tm_map(corpus, removePunctuation)
+
+corpus <- tm_map(corpus, removeNumbers)
+
+corpus <- tm_map(corpus, removeWords, stopwords("en"))
+
+corpus <- tm_map(corpus, stripWhitespace)
+
+corpus <- tm_map(corpus, stemDocument)
+
+
+
+# Creating a document-term matrix
+
+dtm <- DocumentTermMatrix(corpus)
+
+print(dtm)
+
+
+
+# Performing topic modeling
+
+lda_model <- LDA(dtm, k = 2, control = list(seed = 123))
+
+topics <- tidy(lda_model, matrix = "beta")
+
+
+
+# Displaying the top terms in each topic
+
+top_terms <- topics %>%
+
+  group_by(topic) %>%
+
+  slice_max(beta, n = 10) %>%
+
+  ungroup() %>%
+
+  arrange(topic, -beta)
+
+
+
+print(top_terms)
+
+
+
+# Performing sentiment analysis
+
+texts_df <- data.frame(text = texts)
+
+tokens <- texts_df %>%
+
+  unnest_tokens(word, text)
+
+
+
+sentiment <- tokens %>%
+
+  inner_join(get_sentiments("bing")) %>%
+
+  count(word, sentiment, sort = TRUE)
+
+
+
+print(sentiment)
+```
+```{r echo=FALSE}
+# Loading required packages
+
+library(tm)
+
+library(textclean)
+
+library(tidytext)
+
+library(dplyr)
+
+library(topicmodels)
+
+
+
+# Sample text data
+
+texts <- c("I love this product!", "This is the worst experience ever.", "I am very happy with the service.")
+
+
+
+# Creating a corpus
+
+corpus <- VCorpus(VectorSource(texts))
+
+
+
+# Cleaning the text data
+
+corpus <- tm_map(corpus, content_transformer(tolower))
+
+corpus <- tm_map(corpus, removePunctuation)
+
+corpus <- tm_map(corpus, removeNumbers)
+
+corpus <- tm_map(corpus, removeWords, stopwords("en"))
+
+corpus <- tm_map(corpus, stripWhitespace)
+
+corpus <- tm_map(corpus, stemDocument)
+
+
+
+# Creating a document-term matrix
+
+dtm <- DocumentTermMatrix(corpus)
+
+print(dtm)
+
+
+
+# Performing topic modeling
+
+lda_model <- LDA(dtm, k = 2, control = list(seed = 123))
+
+topics <- tidy(lda_model, matrix = "beta")
+
+
+
+# Displaying the top terms in each topic
+
+top_terms <- topics %>%
+
+  group_by(topic) %>%
+
+  slice_max(beta, n = 10) %>%
+
+  ungroup() %>%
+
+  arrange(topic, -beta)
+
+
+
+print(top_terms)
+
+
+
+# Performing sentiment analysis
+
+texts_df <- data.frame(text = texts)
+
+tokens <- texts_df %>%
+
+  unnest_tokens(word, text)
+
+
+
+sentiment <- tokens %>%
+
+  inner_join(get_sentiments("bing")) %>%
+
+  count(word, sentiment, sort = TRUE)
+
+
+
+print(sentiment)
+```
+
+
+## Summary
+
+In this lecture, we covered how to perform text mining and NLP in R, including data preparation, model building, and evaluation. Text mining and NLP are powerful techniques for extracting meaningful information from text data and have a wide range of applications.
+
+## Further Reading
+
+For more detailed information, consider exploring the following resources:
+
+-   [Text Mining in R](https://www.datamentor.io/r-programming/text-mining/)
+
+-   [R Documentation on tm](https://www.rdocumentation.org/packages/tm/versions/0.7-8)
+
+-   [Text Mining with R](https://www.tidytextmining.com/)
+
+## Call to Action
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

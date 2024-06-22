@@ -1,0 +1,271 @@
+---
+title: "Logistic Regression"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Logistic Regression"]
+
+tags: ["R", "machine learning", "logistic regression", "data analysis", "coding in R"]
+
+description: "Learn how to perform logistic regression in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing logistic regression models in R."
+---
+
+
+
+## Introduction
+
+
+
+Logistic regression is a statistical method used to model the relationship between a binary dependent variable and one or more independent variables. In this lecture, we will learn how to perform logistic regression in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is Logistic Regression?
+
+
+
+Logistic regression models the probability that a given input point belongs to a certain class. The logistic function (or sigmoid function) is used to map predicted values to probabilities:
+
+
+
+\[ P(Y = 1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_n X_n)}} \]
+
+
+
+where:
+
+- \( P(Y = 1|X) \) is the probability that the dependent variable \( Y \) equals 1 given the independent variables \( X \).
+
+- \( \beta_0, \beta_1, ..., \beta_n \) are the model coefficients.
+
+
+
+### 2. Assumptions of Logistic Regression
+
+
+
+For logistic regression to provide reliable results, the following assumptions should be met:
+
+- The dependent variable is binary.
+
+- There is a linear relationship between the logit of the dependent variable and the independent variables.
+
+- Observations are independent of each other.
+
+- There is little to no multicollinearity among the independent variables.
+
+
+
+## Performing Logistic Regression in R
+
+
+
+### 1. Building the Model
+
+
+
+You can build a logistic regression model using the `glm()` function in R with the family parameter set to `binomial`.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x = rnorm(100),
+
+  y = rbinom(100, 1, 0.5)
+
+)
+
+
+
+# Building the logistic regression model
+
+model <- glm(y ~ x, data = data, family = binomial)
+
+summary(model)
+
+```
+
+
+
+### 2. Evaluating the Model
+
+
+
+You can evaluate the model's performance using various metrics such as accuracy, confusion matrix, and ROC curve.
+
+
+
+```r
+
+# Making predictions
+
+predictions <- predict(model, type = "response")
+
+predicted_classes <- ifelse(predictions > 0.5, 1, 0)
+
+
+
+# Confusion Matrix
+
+confusion_matrix <- table(predicted_classes, data$y)
+
+print(confusion_matrix)
+
+
+
+# Calculating accuracy
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+### 3. Plotting the ROC Curve
+
+
+
+You can plot the ROC curve using the `pROC` package.
+
+
+
+```r
+
+# Installing and loading the pROC package
+
+install.packages("pROC")
+
+library(pROC)
+
+
+
+# Plotting the ROC curve
+
+roc_curve <- roc(data$y, predictions)
+
+plot(roc_curve, main = "ROC Curve")
+
+```
+
+
+
+## Example: Comprehensive Logistic Regression Analysis
+
+
+
+Here's a comprehensive example of performing logistic regression analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = rbinom(100, 1, 0.5)
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the logistic regression model
+
+model <- glm(y ~ x1 + x2, data = train_data, family = binomial)
+
+summary(model)
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data, type = "response")
+
+predicted_classes <- ifelse(predictions > 0.5, 1, 0)
+
+
+
+# Evaluating the model
+
+confusion_matrix <- table(predicted_classes, test_data$y)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+
+
+# Plotting the ROC curve
+
+library(pROC)
+
+roc_curve <- roc(test_data$y, predictions)
+
+plot(roc_curve, main = "ROC Curve")
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform logistic regression in R, including building the model, evaluating its performance, making predictions, and visualizing the results. Logistic regression is a powerful tool for modeling binary outcomes and making predictions based on those models.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Logistic Regression in R](https://www.datamentor.io/r-programming/logistic-regression/)
+
+- [R Documentation on Generalized Linear Models](https://www.rdocumentation.org/)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

@@ -1,0 +1,262 @@
+---
+title: "Hyperparameter Tuning"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Hyperparameter Tuning"]
+
+tags: ["R", "machine learning", "hyperparameter tuning", "model optimization", "coding in R"]
+
+description: "Learn how to perform hyperparameter tuning in R, including grid search and random search techniques. This lecture covers essential techniques for optimizing machine learning models in R."
+---
+
+
+
+## Introduction
+
+
+
+Hyperparameter tuning is the process of finding the optimal hyperparameters for a machine learning model. Hyperparameters are parameters that are not learned from the data but set prior to the training process. Proper tuning can significantly improve the performance of a model. In this lecture, we will learn how to perform hyperparameter tuning in R, including grid search and random search techniques.
+
+
+
+## Key Concepts
+
+
+
+### 1. What are Hyperparameters?
+
+
+
+Hyperparameters are the parameters of a model that are set before the learning process begins. Examples include the learning rate, the number of trees in a random forest, and the penalty parameter in a support vector machine. These are different from model parameters, which are learned during training.
+
+
+
+### 2. Importance of Hyperparameter Tuning
+
+
+
+Proper hyperparameter tuning is crucial because it can:
+
+- Improve model performance.
+
+- Prevent overfitting.
+
+- Ensure that the model generalizes well to new data.
+
+
+
+## Performing Hyperparameter Tuning in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `caret` package for hyperparameter tuning.
+
+
+
+```r
+
+# Installing the caret package
+
+install.packages("caret")
+
+```
+
+
+
+### 2. Grid Search
+
+
+
+Grid search is a systematic approach to hyperparameter tuning that evaluates all possible combinations of hyperparameters specified in a grid.
+
+
+
+```r
+
+# Loading the required package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Defining the training control
+
+train_control <- trainControl(method = "cv", number = 5)
+
+
+
+# Defining the grid of hyperparameters
+
+grid <- expand.grid(C = c(0.1, 1, 10), sigma = c(0.01, 0.1, 1))
+
+
+
+# Training the model using grid search
+
+model <- train(y ~ x1 + x2, data = data, method = "svmRadial",
+
+               trControl = train_control, tuneGrid = grid)
+
+print(model)
+
+```
+
+
+
+### 3. Random Search
+
+
+
+Random search is an alternative to grid search that randomly samples hyperparameters from specified distributions.
+
+
+
+```r
+
+# Defining the training control for random search
+
+train_control <- trainControl(method = "cv", number = 5, search = "random")
+
+
+
+# Training the model using random search
+
+model <- train(y ~ x1 + x2, data = data, method = "svmRadial",
+
+               trControl = train_control, tuneLength = 10)
+
+print(model)
+
+```
+
+
+
+## Example: Comprehensive Hyperparameter Tuning
+
+
+
+Here's a comprehensive example of performing hyperparameter tuning in R using grid search and random search.
+
+
+
+```r
+
+# Loading the required package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Grid Search
+
+# Defining the training control
+
+train_control_grid <- trainControl(method = "cv", number = 5)
+
+
+
+# Defining the grid of hyperparameters
+
+grid <- expand.grid(C = c(0.1, 1, 10), sigma = c(0.01, 0.1, 1))
+
+
+
+# Training the model using grid search
+
+model_grid <- train(y ~ x1 + x2, data = data, method = "svmRadial",
+
+                    trControl = train_control_grid, tuneGrid = grid)
+
+print(model_grid)
+
+
+
+# Random Search
+
+# Defining the training control for random search
+
+train_control_random <- trainControl(method = "cv", number = 5, search = "random")
+
+
+
+# Training the model using random search
+
+model_random <- train(y ~ x1 + x2, data = data, method = "svmRadial",
+
+                      trControl = train_control_random, tuneLength = 10)
+
+print(model_random)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform hyperparameter tuning in R using grid search and random search techniques. Hyperparameter tuning is essential for optimizing machine learning models and ensuring they perform well on new, unseen data.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Hyperparameter Tuning in R](https://www.datamentor.io/r-programming/hyperparameter-tuning/)
+
+- [R Documentation on caret](https://www.rdocumentation.org/packages/caret/versions/6.0-84)
+
+- [R for Data Science](https://r4ds.had.co.nz/model-tuning.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!
+

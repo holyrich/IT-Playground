@@ -1,0 +1,364 @@
+---
+title: "Heatmaps"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "heatmaps"]
+
+description: "Learn how to create and customize heatmaps using R. This lecture covers essential techniques for visualizing data with heatmaps in R."
+---
+
+
+
+# Heatmaps
+
+
+
+## Introduction
+
+
+
+Heatmaps are a powerful visualization tool used to represent data in a matrix format, where individual values are represented as colors. They are particularly useful for visualizing the intensity of data at specific points and identifying patterns or correlations in large datasets. In this lecture, we will learn how to create and customize heatmaps in R.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is a Heatmap?
+
+
+
+A heatmap is a graphical representation of data where individual values are represented by colors. It is used to visualize the density or intensity of data points in a matrix format.
+
+
+
+### 2. Applications of Heatmaps
+
+
+
+- Visualizing correlation matrices.
+
+- Displaying the intensity of data points.
+
+- Identifying patterns and clusters in large datasets.
+
+
+
+### 3. Creating Heatmaps in R
+
+
+
+R provides several functions for creating heatmaps, including `heatmap()`, `heatmap.2()` from the gplots package, and the `geom_tile()` function from ggplot2.
+
+
+
+## Creating and Customizing Heatmaps in R
+
+
+
+### 1. Basic Heatmap with Base R
+
+
+
+The `heatmap()` function in base R creates a basic heatmap.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+set.seed(123)
+
+data <- matrix(rnorm(100), nrow = 10)
+
+
+
+# Creating a basic heatmap
+
+heatmap(data, main = "Basic Heatmap", xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+
+### 2. Enhanced Heatmap with heatmap.2()
+
+
+
+The `heatmap.2()` function from the gplots package provides more customization options.
+
+
+
+```r
+
+# Installing and loading gplots
+
+install.packages("gplots")
+
+```{r echo=TRUE}
+
+library(gplots)
+
+
+
+# Creating an enhanced heatmap with heatmap.2()
+
+heatmap.2(data, main = "Enhanced Heatmap", trace = "none", col = bluered(100), margins = c(5, 5))
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+heatmap.2(data, main = "Enhanced Heatmap", trace = "none", col = bluered(100), margins = c(5, 5))
+
+```
+
+
+
+### 3. Heatmap with ggplot2
+
+
+
+The `geom_tile()` function from ggplot2 can be used to create heatmaps.
+
+
+
+```r
+
+# Installing and loading ggplot2
+
+install.packages("ggplot2")
+```
+
+```{r echo=TRUE}
+
+library(ggplot2)
+
+
+
+# Converting matrix to data frame
+
+data_df <- as.data.frame(as.table(data))
+
+
+
+# Creating a heatmap with ggplot2
+
+ggplot(data_df, aes(Var1, Var2, fill = Freq)) +
+
+  geom_tile() +
+
+  scale_fill_gradient(low = "white", high = "red") +
+
+  labs(title = "Heatmap with ggplot2", x = "Columns", y = "Rows")
+
+```
+
+
+
+
+### 4. Adding Annotations
+
+
+
+You can add annotations to a heatmap to provide more context.
+
+
+
+```r
+
+# Adding row and column names
+
+rownames(data) <- paste("Row", 1:10, sep = "")
+
+colnames(data) <- paste("Col", 1:10, sep = "")
+
+
+
+# Creating a heatmap with annotations
+
+heatmap(data, main = "Heatmap with Annotations", xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+heatmap(data, main = "Heatmap with Annotations", xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+### 5. Customizing Colors
+
+
+
+You can customize the color palette of a heatmap to improve its visual appeal.
+
+
+
+```r
+
+# Creating a heatmap with a custom color palette
+
+heatmap(data, main = "Heatmap with Custom Colors", col = heat.colors(100), xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+heatmap(data, main = "Heatmap with Custom Colors", col = heat.colors(100), xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+## Example: Comprehensive Heatmap Visualization
+
+
+
+Here's a comprehensive example of creating and customizing heatmaps in R.
+
+
+
+```r
+
+# Creating sample data
+
+data <- matrix(rnorm(100), nrow = 10)
+
+rownames(data) <- paste("Row", 1:10, sep = "")
+
+colnames(data) <- paste("Col", 1:10, sep = "")
+
+
+
+# Basic heatmap
+
+heatmap(data, main = "Basic Heatmap", xlab = "Columns", ylab = "Rows")
+
+
+
+# Enhanced heatmap with heatmap.2()
+
+install.packages("gplots")
+
+library(gplots)
+
+heatmap.2(data, main = "Enhanced Heatmap", trace = "none", col = bluered(100), margins = c(5, 5))
+
+
+
+# Heatmap with ggplot2
+
+install.packages("ggplot2")
+
+library(ggplot2)
+
+data_df <- as.data.frame(as.table(data))
+
+ggplot(data_df, aes(Var1, Var2, fill = Freq)) +
+
+  geom_tile() +
+
+  scale_fill_gradient(low = "white", high = "red") +
+
+  labs(title = "Heatmap with ggplot2", x = "Columns", y = "Rows")
+
+
+
+# Heatmap with annotations
+
+heatmap(data, main = "Heatmap with Annotations", xlab = "Columns", ylab = "Rows")
+
+
+
+# Heatmap with custom colors
+
+heatmap(data, main = "Heatmap with Custom Colors", col = heat.colors(100), xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+```{r}
+
+# Plot results
+
+heatmap(data, main = "Basic Heatmap", xlab = "Columns", ylab = "Rows")
+
+
+
+heatmap.2(data, main = "Enhanced Heatmap", trace = "none", col = bluered(100), margins = c(5, 5))
+
+
+
+ggplot(data_df, aes(Var1, Var2, fill = Freq)) +
+
+  geom_tile() +
+
+  scale_fill_gradient(low = "white", high = "red") +
+
+  labs(title = "Heatmap with ggplot2", x = "Columns", y = "Rows")
+
+
+
+heatmap(data, main = "Heatmap with Annotations", xlab = "Columns", ylab = "Rows")
+
+
+
+heatmap(data, main = "Heatmap with Custom Colors", col = heat.colors(100), xlab = "Columns", ylab = "Rows")
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create and customize heatmaps in R. We explored various techniques for creating heatmaps using base R, the gplots package, and ggplot2. We also learned how to add annotations and customize colors to enhance the visual appeal of heatmaps.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Creating Heatmaps in R](https://www.datamentor.io/r-programming/heatmap/)
+
+- [R Documentation on heatmap](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/heatmap)
+
+- [ggplot2 Documentation](https://ggplot2.tidyverse.org/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

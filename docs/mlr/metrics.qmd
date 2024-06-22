@@ -1,0 +1,392 @@
+---
+title: "Model Evaluation Metrics"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Model Evaluation"]
+
+tags: ["R", "machine learning", "model evaluation", "metrics", "data analysis", "coding in R"]
+
+description: "Learn how to evaluate machine learning models in R using various metrics, including accuracy, precision, recall, F1 score, and ROC AUC. This lecture covers essential techniques for assessing model performance in R."
+---
+
+
+
+
+## Introduction
+
+
+
+Model evaluation is a critical step in the machine learning workflow. It involves assessing the performance of a model using various metrics to ensure it generalizes well to new, unseen data. In this lecture, we will learn how to evaluate machine learning models in R using various metrics, including accuracy, precision, recall, F1 score, and ROC AUC.
+
+
+
+## Key Concepts
+
+
+
+### 1. Importance of Model Evaluation
+
+
+
+Evaluating a model's performance helps in:
+
+- Understanding how well the model generalizes to new data.
+
+- Comparing different models.
+
+- Identifying potential areas for improvement.
+
+
+
+### 2. Common Evaluation Metrics
+
+
+
+- **Accuracy**: The proportion of correctly classified instances out of the total instances.
+
+- **Precision**: The proportion of true positive instances out of the total predicted positive instances.
+
+- **Recall (Sensitivity)**: The proportion of true positive instances out of the total actual positive instances.
+
+- **F1 Score**: The harmonic mean of precision and recall.
+
+- **ROC AUC**: The area under the Receiver Operating Characteristic (ROC) curve, which plots the true positive rate against the false positive rate.
+
+
+
+## Performing Model Evaluation in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `caret` and `pROC` packages for model evaluation.
+
+
+
+```r
+
+# Installing required packages
+
+install.packages("caret")
+
+install.packages("pROC")
+
+```
+
+
+
+### 2. Evaluating a Classification Model
+
+
+
+You can evaluate a classification model using various metrics provided by the `caret` package.
+
+
+
+```r
+
+# Loading required packages
+
+library(caret)
+
+library(pROC)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building a logistic regression model
+
+model <- train(y ~ x1 + x2, data = train_data, method = "glm", family = "binomial")
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Confusion Matrix
+
+conf_matrix <- confusionMatrix(predictions, test_data$y)
+
+print(conf_matrix)
+
+
+
+# Extracting metrics
+
+accuracy <- conf_matrix$overall["Accuracy"]
+
+precision <- conf_matrix$byClass["Pos Pred Value"]
+
+recall <- conf_matrix$byClass["Sensitivity"]
+
+f1 <- 2 * (precision * recall) / (precision + recall)
+
+
+
+print(paste("Accuracy:", accuracy))
+
+print(paste("Precision:", precision))
+
+print(paste("Recall:", recall))
+
+print(paste("F1 Score:", f1))
+
+
+
+# ROC AUC
+
+prob_predictions <- predict(model, newdata = test_data, type = "prob")[, 2]
+
+roc_curve <- roc(test_data$y, prob_predictions)
+
+auc <- auc(roc_curve)
+
+print(paste("ROC AUC:", auc))
+
+
+
+# Plotting ROC curve
+
+plot(roc_curve, main = "ROC Curve")
+
+```
+
+
+
+### 3. Evaluating a Regression Model
+
+
+
+For regression models, common evaluation metrics include Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE).
+
+
+
+```r
+
+# Creating a sample regression dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = rnorm(100)
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building a linear regression model
+
+model <- train(y ~ x1 + x2, data = train_data, method = "lm")
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Calculating regression metrics
+
+mae <- mean(abs(predictions - test_data$y))
+
+mse <- mean((predictions - test_data$y)^2)
+
+rmse <- sqrt(mse)
+
+
+
+print(paste("Mean Absolute Error (MAE):", mae))
+
+print(paste("Mean Squared Error (MSE):", mse))
+
+print(paste("Root Mean Squared Error (RMSE):", rmse))
+
+```
+
+
+
+## Example: Comprehensive Model Evaluation
+
+
+
+Here's a comprehensive example of evaluating a classification model using various metrics in R.
+
+
+
+```r
+
+# Loading required packages
+
+library(caret)
+
+library(pROC)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building a logistic regression model
+
+model <- train(y ~ x1 + x2, data = train_data, method = "glm", family = "binomial")
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Confusion Matrix
+
+conf_matrix <- confusionMatrix(predictions, test_data$y)
+
+print(conf_matrix)
+
+
+
+# Extracting metrics
+
+accuracy <- conf_matrix$overall["Accuracy"]
+
+precision <- conf_matrix$byClass["Pos Pred Value"]
+
+recall <- conf_matrix$byClass["Sensitivity"]
+
+f1 <- 2 * (precision * recall) / (precision + recall)
+
+
+
+print(paste("Accuracy:", accuracy))
+
+print(paste("Precision:", precision))
+
+print(paste("Recall:", recall))
+
+print(paste("F1 Score:", f1))
+
+
+
+# ROC AUC
+
+prob_predictions <- predict(model, newdata = test_data, type = "prob")[, 2]
+
+roc_curve <- roc(test_data$y, prob_predictions)
+
+auc <- auc(roc_curve)
+
+print(paste("ROC AUC:", auc))
+
+
+
+# Plotting ROC curve
+
+plot(roc_curve, main = "ROC Curve")
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to evaluate machine learning models in R using various metrics, including accuracy, precision, recall, F1 score, and ROC AUC for classification models, as well as MAE, MSE, and RMSE for regression models. Model evaluation is essential for assessing the performance of your models and ensuring they generalize well to new data.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Model Evaluation in R](https://www.datamentor.io/r-programming/model-evaluation/)
+
+- [R Documentation on caret](https://www.rdocumentation.org/packages/caret/versions/6.0-84)
+
+- [R for Data Science](https://r4ds.had.co.nz/model-evaluation.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

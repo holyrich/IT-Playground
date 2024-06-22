@@ -1,0 +1,402 @@
+---
+title: "Interactive Plots with plotly"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "interactive plots", "plotly"]
+
+description: "Learn how to create interactive plots using the plotly package in R. This lecture covers essential techniques for enhancing data visualizations with interactivity using plotly in R."
+---
+
+
+
+## Introduction
+
+
+
+Interactive plots provide a dynamic way to explore data, allowing users to zoom, pan, hover, and click to get more information. The plotly package in R enables the creation of interactive plots with ease. In this lecture, we will learn how to create interactive plots using plotly in R.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is plotly?
+
+
+
+plotly is a graphing library that makes interactive, publication-quality graphs online. In R, the plotly package allows you to create interactive plots directly from R code.
+
+
+
+### 2. Advantages of Interactive Plots
+
+
+
+- Enhanced data exploration.
+
+- Improved user engagement.
+
+- Ability to reveal more details on demand.
+
+
+
+### 3. Basic Structure of plotly
+
+
+
+Creating a plotly plot involves:
+
+- Loading the plotly library.
+
+- Creating a plotly object using the `plot_ly()` function or converting an existing ggplot2 plot to plotly using the `ggplotly()` function.
+
+
+
+## Creating and Customizing Interactive Plots with plotly
+
+
+
+### 1. Installing and Loading plotly
+
+
+
+If you haven't installed plotly yet, you can install it using the following command:
+
+
+
+```r
+
+install.packages("plotly")
+
+```
+
+
+
+Load the plotly package:
+
+
+
+```{r echo=TRUE}
+
+library(plotly)
+
+```
+
+
+
+### 2. Basic Scatter Plot
+
+
+
+A basic scatter plot in plotly can be created using the `plot_ly()` function.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+set.seed(123)
+
+data <- data.frame(x = rnorm(100), y = rnorm(100))
+
+
+
+# Creating a basic scatter plot with plotly
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers')
+
+```
+
+
+
+
+### 3. Adding Titles and Labels
+
+
+
+You can add titles and labels to a plotly plot using the `layout()` function.
+
+
+
+```r
+
+# Adding titles and labels
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers') %>%
+
+  layout(title = 'Basic Scatter Plot with Titles and Labels', 
+
+         xaxis = list(title = 'X Axis Label'), 
+
+         yaxis = list(title = 'Y Axis Label'))
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers') %>%
+
+  layout(title = 'Basic Scatter Plot with Titles and Labels', 
+
+         xaxis = list(title = 'X Axis Label'), 
+
+         yaxis = list(title = 'Y Axis Label'))
+
+```
+
+
+
+### 4. Customizing Colors and Symbols
+
+
+
+You can customize colors and symbols using the `marker` parameter.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data with groups
+
+data$group <- sample(c("Group 1", "Group 2"), 100, replace = TRUE)
+
+
+
+# Customizing colors and symbols
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+```
+
+
+
+
+
+### 5. Converting ggplot2 Plots to plotly
+
+
+
+You can convert an existing ggplot2 plot to an interactive plotly plot using the `ggplotly()` function.
+
+
+
+```r
+
+# Creating a ggplot2 plot
+
+library(ggplot2)
+
+p <- ggplot(data, aes(x = x, y = y, color = group)) +
+
+  geom_point() +
+
+  labs(title = "ggplot2 Plot")
+
+
+
+# Converting the ggplot2 plot to plotly
+
+ggplotly(p)
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+p <- ggplot(data, aes(x = x, y = y, color = group)) +
+
+  geom_point() +
+
+  labs(title = "ggplot2 Plot")
+
+ggplotly(p)
+
+```
+
+
+
+### 6. Adding Hover Text
+
+
+
+You can add hover text to provide more information when the user hovers over a data point.
+
+
+
+```r
+
+# Adding hover text
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+## Example: Comprehensive Interactive Plotting with plotly
+
+
+
+Here's a comprehensive example of creating and customizing interactive plots using plotly in R.
+
+
+
+```r
+
+# Creating sample data
+
+data <- data.frame(x = rnorm(100), y = rnorm(100), group = sample(c("Group 1", "Group 2"), 100, replace = TRUE))
+
+
+
+# Basic scatter plot
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers')
+
+
+
+# Scatter plot with titles and labels
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers') %>%
+
+  layout(title = 'Basic Scatter Plot with Titles and Labels', 
+
+         xaxis = list(title = 'X Axis Label'), 
+
+         yaxis = list(title = 'Y Axis Label'))
+
+
+
+# Customizing colors and symbols
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+
+
+# Converting ggplot2 plot to plotly
+
+library(ggplot2)
+
+p <- ggplot(data, aes(x = x, y = y, color = group)) +
+
+  geom_point() +
+
+  labs(title = "ggplot2 Plot")
+
+ggplotly(p)
+
+
+
+# Adding hover text
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+```{r}
+
+# Plot results
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers')
+
+
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers') %>%
+
+  layout(title = 'Basic Scatter Plot with Titles and Labels', 
+
+         xaxis = list(title = 'X Axis Label'), 
+
+         yaxis = list(title = 'Y Axis Label'))
+
+
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        marker = list(color = ~group, colorscale = c('red', 'blue'), symbol = ~group))
+
+
+
+p <- ggplot(data, aes(x = x, y = y, color = group)) +
+
+  geom_point() +
+
+  labs(title = "ggplot2 Plot")
+
+ggplotly(p)
+
+
+
+plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers', 
+
+        text = ~paste("X:", x, "<br>Y:", y, "<br>Group:", group), hoverinfo = 'text')
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create interactive plots using the plotly package in R. We explored various techniques for adding titles, labels, colors, symbols, and hover text. We also learned how to convert ggplot2 plots to plotly for enhanced interactivity. Interactive plots are a powerful tool for data exploration and user engagement.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [plotly for R Documentation](https://plotly.com/r/)
+
+- [R for Data Science](https://r4ds.had.co.nz/data-visualization.html)
+
+- [Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

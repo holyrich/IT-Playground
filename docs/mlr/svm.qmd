@@ -1,0 +1,294 @@
+---
+title: "Support Vector Machines"
+
+author: "Your Name"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Support Vector Machines"]
+
+tags: ["R", "machine learning", "support vector machines", "data analysis", "coding in R"]
+
+description: "Learn how to perform support vector machine (SVM) analysis in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing SVM models in R."
+---
+
+
+## Introduction
+
+
+
+Support Vector Machines (SVMs) are a powerful supervised machine learning algorithm used for classification and regression tasks. They work by finding the hyperplane that best separates the data into different classes. In this lecture, we will learn how to perform SVM analysis in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is a Support Vector Machine?
+
+
+
+An SVM finds the optimal hyperplane that maximizes the margin between the classes. The points closest to the hyperplane are called support vectors. The goal of the SVM algorithm is to find the hyperplane that best separates the data points of different classes.
+
+
+
+### 2. Kernel Trick
+
+
+
+SVMs can use the kernel trick to transform the input data into a higher-dimensional space where it is easier to find a separating hyperplane. Common kernels include:
+
+- **Linear Kernel**
+
+- **Polynomial Kernel**
+
+- **Radial Basis Function (RBF) Kernel**
+
+
+
+## Performing SVM Analysis in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `e1071` package for building SVM models.
+
+
+
+```r
+
+# Installing the e1071 package
+
+install.packages("e1071")
+
+```
+
+
+
+### 2. Building the Model
+
+
+
+You can build an SVM model using the `svm()` function from the `e1071` package.
+
+
+
+```r
+
+# Loading the required package
+
+library(e1071)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the SVM model
+
+model <- svm(y ~ x1 + x2, data = train_data, kernel = "linear")
+
+print(model)
+
+```
+
+
+
+### 3. Evaluating the Model
+
+
+
+You can evaluate the model's performance using various metrics such as accuracy and confusion matrix.
+
+
+
+```r
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Confusion Matrix
+
+confusion_matrix <- table(predictions, test_data$y)
+
+print(confusion_matrix)
+
+
+
+# Calculating accuracy
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+```
+
+
+
+### 4. Tuning the Model
+
+
+
+You can tune the SVM model's parameters using the `tune()` function.
+
+
+
+```r
+
+# Tuning the SVM model
+
+tuned_model <- tune(svm, y ~ x1 + x2, data = train_data, 
+
+                    ranges = list(cost = c(0.1, 1, 10), gamma = c(0.01, 0.1, 1)))
+
+print(tuned_model)
+
+
+
+# Best model
+
+best_model <- tuned_model$best.model
+
+print(best_model)
+
+```
+
+
+
+## Example: Comprehensive SVM Analysis
+
+
+
+Here's a comprehensive example of performing SVM analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Splitting the data into training and testing sets
+
+library(caret)
+
+trainIndex <- createDataPartition(data$y, p = 0.7, list = FALSE)
+
+train_data <- data[trainIndex, ]
+
+test_data <- data[-trainIndex, ]
+
+
+
+# Building the SVM model
+
+library(e1071)
+
+model <- svm(y ~ x1 + x2, data = train_data, kernel = "linear")
+
+
+
+# Making predictions on the test set
+
+predictions <- predict(model, newdata = test_data)
+
+
+
+# Evaluating the model
+
+confusion_matrix <- table(predictions, test_data$y)
+
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+
+print(paste("Accuracy:", accuracy))
+
+
+
+# Tuning the SVM model
+
+tuned_model <- tune(svm, y ~ x1 + x2, data = train_data, 
+
+                    ranges = list(cost = c(0.1, 1, 10), gamma = c(0.01, 0.1, 1)))
+
+best_model <- tuned_model$best.model
+
+print(best_model)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform SVM analysis in R, including building the model, evaluating its performance, making predictions, and tuning the model's parameters. SVMs are a powerful tool for both classification and regression tasks, offering flexibility through the use of different kernels.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Support Vector Machines in R](https://www.datamentor.io/r-programming/svm/)
+
+- [R Documentation on e1071](https://www.rdocumentation.org/packages/e1071/versions/1.7-3)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

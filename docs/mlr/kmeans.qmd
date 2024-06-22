@@ -1,0 +1,252 @@
+---
+title: "Clustering with k-means"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Clustering"]
+
+tags: ["R", "machine learning", "k-means clustering", "data analysis", "coding in R"]
+
+description: "Learn how to perform k-means clustering in R, including model building, evaluation, and interpretation. This lecture covers essential techniques for implementing k-means clustering in R."
+---
+
+
+## Introduction
+
+
+
+k-means clustering is an unsupervised machine learning algorithm used to partition a dataset into k clusters, where each data point belongs to the cluster with the nearest mean. In this lecture, we will learn how to perform k-means clustering in R, including model building, evaluation, and interpretation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is k-means Clustering?
+
+
+
+k-means clustering aims to partition the dataset into k clusters in which each data point belongs to the cluster with the nearest mean. The algorithm works as follows:
+
+1. Initialize k centroids randomly.
+
+2. Assign each data point to the nearest centroid, forming k clusters.
+
+3. Recalculate the centroids as the mean of all data points in each cluster.
+
+4. Repeat steps 2 and 3 until the centroids no longer change.
+
+
+
+### 2. Choosing the Number of Clusters
+
+
+
+The number of clusters, k, is a critical parameter in k-means clustering. It can be chosen using methods like the Elbow Method, Silhouette Analysis, or domain knowledge.
+
+
+
+## Performing k-means Clustering in R
+
+
+
+### 1. Building the Model
+
+
+
+You can build a k-means clustering model using the `kmeans()` function in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100)
+
+)
+
+
+
+# Performing k-means clustering with 3 clusters
+
+k <- 3
+
+model <- kmeans(data, centers = k, nstart = 25)
+
+print(model)
+
+```
+
+
+
+### 2. Evaluating the Model
+
+
+
+You can evaluate the model's performance by looking at the within-cluster sum of squares and plotting the clusters.
+
+
+
+```r
+
+# Plotting the clusters
+
+library(ggplot2)
+
+data$cluster <- as.factor(model$cluster)
+
+ggplot(data, aes(x = x1, y = x2, color = cluster)) +
+
+  geom_point() +
+
+  labs(title = "k-means Clustering", x = "Feature 1", y = "Feature 2")
+
+```
+
+
+
+### 3. Choosing the Optimal Number of Clusters
+
+
+
+The Elbow Method helps determine the optimal number of clusters by plotting the within-cluster sum of squares against the number of clusters.
+
+
+
+```r
+
+# Elbow Method to determine the optimal number of clusters
+
+wss <- sapply(1:10, function(k) {
+
+  kmeans(data[, 1:2], centers = k, nstart = 25)$tot.withinss
+
+})
+
+
+
+# Plotting the Elbow Method
+
+plot(1:10, wss, type = "b", pch = 19, frame = FALSE, 
+
+     xlab = "Number of Clusters", ylab = "Total Within-Cluster Sum of Squares",
+
+     main = "Elbow Method for Optimal k")
+
+```
+
+
+
+## Example: Comprehensive k-means Clustering Analysis
+
+
+
+Here's a comprehensive example of performing k-means clustering analysis in R.
+
+
+
+```r
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100)
+
+)
+
+
+
+# Performing k-means clustering with 3 clusters
+
+k <- 3
+
+model <- kmeans(data, centers = k, nstart = 25)
+
+
+
+# Evaluating the model
+
+print(model)
+
+
+
+# Plotting the clusters
+
+library(ggplot2)
+
+data$cluster <- as.factor(model$cluster)
+
+ggplot(data, aes(x = x1, y = x2, color = cluster)) +
+
+  geom_point() +
+
+  labs(title = "k-means Clustering", x = "Feature 1", y = "Feature 2")
+
+
+
+# Elbow Method to determine the optimal number of clusters
+
+wss <- sapply(1:10, function(k) {
+
+  kmeans(data[, 1:2], centers = k, nstart = 25)$tot.withinss
+
+})
+
+
+
+# Plotting the Elbow Method
+
+plot(1:10, wss, type = "b", pch = 19, frame = FALSE, 
+
+     xlab = "Number of Clusters", ylab = "Total Within-Cluster Sum of Squares",
+
+     main = "Elbow Method for Optimal k")
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform k-means clustering in R, including building the model, evaluating its performance, and choosing the optimal number of clusters. k-means clustering is a powerful tool for partitioning data into meaningful groups based on feature similarity.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [k-means Clustering in R](https://www.datamentor.io/r-programming/kmeans-clustering/)
+
+- [R Documentation on kmeans](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/kmeans)
+
+- [R for Data Science](https://r4ds.had.co.nz/model.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!

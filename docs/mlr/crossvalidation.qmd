@@ -1,0 +1,276 @@
+---
+title: "Cross-Validation"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["Machine Learning", "R Programming", "Cross-Validation"]
+
+tags: ["R", "machine learning", "cross-validation", "model evaluation", "coding in R"]
+
+description: "Learn how to perform cross-validation in R, including different techniques such as k-fold, stratified, and leave-one-out cross-validation. This lecture covers essential techniques for validating machine learning models in R."
+---
+
+
+
+# Cross-Validation
+
+
+
+## Introduction
+
+
+
+Cross-validation is a model validation technique used to assess how a model generalizes to an independent dataset. It is commonly used to evaluate the performance of machine learning models and prevent overfitting. In this lecture, we will learn how to perform cross-validation in R, including different techniques such as k-fold, stratified, and leave-one-out cross-validation.
+
+
+
+## Key Concepts
+
+
+
+### 1. What is Cross-Validation?
+
+
+
+Cross-validation involves partitioning the dataset into a training set and a validation set multiple times to evaluate the model's performance. The most common techniques are:
+
+
+
+- **k-Fold Cross-Validation**: The dataset is divided into k subsets (folds). The model is trained on k-1 folds and tested on the remaining fold. This process is repeated k times, with each fold being used as the test set once.
+
+- **Stratified k-Fold Cross-Validation**: Similar to k-fold cross-validation, but the folds are stratified to ensure that each fold has a representative proportion of each class.
+
+- **Leave-One-Out Cross-Validation (LOOCV)**: A special case of k-fold cross-validation where k is equal to the number of data points. Each data point is used as a test set exactly once.
+
+
+
+## Performing Cross-Validation in R
+
+
+
+### 1. Installing Required Packages
+
+
+
+We will use the `caret` package for performing cross-validation.
+
+
+
+```r
+
+# Installing the caret package
+
+install.packages("caret")
+
+```
+
+
+
+### 2. k-Fold Cross-Validation
+
+
+
+You can perform k-fold cross-validation using the `trainControl()` function in the `caret` package.
+
+
+
+```r
+
+# Loading the required package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Defining the training control
+
+train_control <- trainControl(method = "cv", number = 10)
+
+
+
+# Training the model using k-fold cross-validation
+
+model <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control)
+
+print(model)
+
+```
+
+
+
+### 3. Stratified k-Fold Cross-Validation
+
+
+
+Stratified k-fold cross-validation ensures that each fold has a representative proportion of each class.
+
+
+
+```r
+
+# Defining the training control with stratified k-fold cross-validation
+
+train_control <- trainControl(method = "cv", number = 10, classProbs = TRUE, summaryFunction = twoClassSummary)
+
+
+
+# Training the model using stratified k-fold cross-validation
+
+model <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control, metric = "ROC")
+
+print(model)
+
+```
+
+
+
+### 4. Leave-One-Out Cross-Validation (LOOCV)
+
+
+
+LOOCV is a special case of k-fold cross-validation where k is equal to the number of data points.
+
+
+
+```r
+
+# Defining the training control for LOOCV
+
+train_control <- trainControl(method = "LOOCV")
+
+
+
+# Training the model using LOOCV
+
+model <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control)
+
+print(model)
+
+```
+
+
+
+## Example: Comprehensive Cross-Validation Analysis
+
+
+
+Here's a comprehensive example of performing cross-validation in R using different techniques.
+
+
+
+```r
+
+# Loading the required package
+
+library(caret)
+
+
+
+# Creating a sample dataset
+
+set.seed(123)
+
+data <- data.frame(
+
+  x1 = rnorm(100),
+
+  x2 = rnorm(100),
+
+  y = factor(sample(c("A", "B"), 100, replace = TRUE))
+
+)
+
+
+
+# Defining the training control for k-fold cross-validation
+
+train_control_kfold <- trainControl(method = "cv", number = 10)
+
+
+
+# Training the model using k-fold cross-validation
+
+model_kfold <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control_kfold)
+
+print(model_kfold)
+
+
+
+# Defining the training control for stratified k-fold cross-validation
+
+train_control_stratified <- trainControl(method = "cv", number = 10, classProbs = TRUE, summaryFunction = twoClassSummary)
+
+
+
+# Training the model using stratified k-fold cross-validation
+
+model_stratified <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control_stratified, metric = "ROC")
+
+print(model_stratified)
+
+
+
+# Defining the training control for LOOCV
+
+train_control_loocv <- trainControl(method = "LOOCV")
+
+
+
+# Training the model using LOOCV
+
+model_loocv <- train(y ~ x1 + x2, data = data, method = "glm", family = "binomial", trControl = train_control_loocv)
+
+print(model_loocv)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to perform cross-validation in R using different techniques such as k-fold, stratified k-fold, and leave-one-out cross-validation. Cross-validation is essential for assessing the generalization performance of machine learning models and preventing overfitting.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [Cross-Validation in R](https://www.datamentor.io/r-programming/cross-validation/)
+
+- [R Documentation on caret](https://www.rdocumentation.org/packages/caret/versions/6.0-84)
+
+- [R for Data Science](https://r4ds.had.co.nz/model-evaluation.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the ML R series. Happy coding!
+

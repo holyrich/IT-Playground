@@ -6,7 +6,7 @@ website:
   navbar:
     background: white
     logo: ./img/tere-logo.webp
-    left:
+    right:
       - href: index.qmd
         text: Home
       - text: "R Basics"
@@ -23,55 +23,146 @@ website:
         href: docs/blog/index.qmd
       - text: "About"
         href: docs/about.qmd
-    right: 
       - icon: github
         href: "#"
         aria-label: IT Playground
   sidebar:
-    - title: "R Basics"
-      style: "floating"
-      collapse-level: 2
-      align: left
-      contents: 
-        - docs/rbasics/index.qmd
-        - docs/rbasics/lec001.qmd
-        - docs/rbasics/lec002.qmd
-        - docs/rbasics/lec003.qmd
-        - docs/rbasics/lec004.qmd
-        - docs/rbasics/lec005.qmd
-        - docs/rbasics/lec006.qmd
-        - docs/rbasics/lec007.qmd
-        - docs/rbasics/lec008.qmd
-        - docs/rbasics/lec009.qmd
-        - docs/rbasics/lec010.qmd
-        - docs/rbasics/lec011.qmd
-        - docs/rbasics/lec012.qmd
-        - docs/rbasics/lec013.qmd
-        - docs/rbasics/lec014.qmd
-        - docs/rbasics/lec015.qmd
-        - docs/rbasics/lec016.qmd
-        - docs/rbasics/lec017.qmd
-        - docs/rbasics/lec018.qmd
-        - docs/rbasics/lec019.qmd
-        - docs/rbasics/lec020.qmd
-    - title: "R Graphs"
-      contents:
-        - docs/rgraphs/index.qmd
-    - title: "ML R"
-      contents:
-        - docs/mlr/index.qmd
-    - title: "Shiny R"
-      contents:
-        - docs/shinyr/index.qmd
-    - title: "Quarto"
-      contents:
-        - docs/quarto/index.qmd
-    - title: "Blog"
-      contents:
-        - docs/blog/index.qmd
-    - title: "About"
-      contents:
-        - docs/about.qmd
+  - title: "R Basics"
+    style: "floating"
+    collapse-level: 2
+    align: left
+    contents: 
+      - docs/rbasics/index.qmd
+      - docs/rbasics/lec001.qmd
+      - docs/rbasics/lec002.qmd
+      - docs/rbasics/lec003.qmd
+      - docs/rbasics/lec004.qmd
+      - docs/rbasics/lec005.qmd
+      - docs/rbasics/lec006.qmd
+      - docs/rbasics/lec007.qmd
+      - docs/rbasics/lec008.qmd
+      - docs/rbasics/lec009.qmd
+      - docs/rbasics/lec010.qmd
+      - docs/rbasics/lec011.qmd
+      - docs/rbasics/lec012.qmd
+      - docs/rbasics/lec013.qmd
+      - docs/rbasics/lec014.qmd
+      - docs/rbasics/lec015.qmd
+      - docs/rbasics/lec016.qmd
+      - docs/rbasics/lec017.qmd
+      - docs/rbasics/lec018.qmd
+      - docs/rbasics/lec019.qmd
+      - docs/rbasics/lec020.qmd
+  - title: "ML R"
+    style: "floating"
+    collapse-level: 2
+    align: left
+    contents: 
+      - docs/mlr/index.qmd
+      - docs/mlr/intro.qmd
+      - docs/mlr/preprocessing.qmd
+      - docs/mlr/split.qmd
+      - docs/mlr/linear.qmd
+      - docs/mlr/logistic.qmd
+      - docs/mlr/trees.qmd
+      - docs/mlr/forests.qmd
+      - docs/mlr/svm.qmd
+      - docs/mlr/knn.qmd
+      - docs/mlr/bayes.qmd
+      - docs/mlr/kmeans.qmd
+      - docs/mlr/hierarchical.qmd
+      - docs/mlr/pca.qmd
+      - docs/mlr/metrics.qmd
+      - docs/mlr/crossvalidation.qmd
+      - docs/mlr/tuning.qmd
+      - docs/mlr/ensemble.qmd
+      - docs/mlr/keras.qmd
+      - docs/mlr/timeseries.qmd
+      - docs/mlr/nlp.qmd
+  - title: "R Graphs"
+    style: "floating"
+    collapse-level: 2
+    align: left
+    contents: 
+      - docs/rgraphs/index.qmd
+      - docs/rgraphs/intro.qmd
+      - docs/rgraphs/base.qmd
+      - docs/rgraphs/bar.qmd
+      - docs/rgraphs/histogram.qmd
+      - docs/rgraphs/pie.qmd
+      - docs/rgraphs/box.qmd
+      - docs/rgraphs/scatter.qmd
+      - docs/rgraphs/line.qmd
+      - docs/rgraphs/customization.qmd
+      - docs/rgraphs/colors.qmd
+      - docs/rgraphs/ggplot2.qmd
+      - docs/rgraphs/themes.qmd
+      - docs/rgraphs/faceting.qmd
+      - docs/rgraphs/saving.qmd
+      - docs/rgraphs/plotly.qmd
+      - docs/rgraphs/3d.qmd
+      - docs/rgraphs/heatmaps.qmd
+      - docs/rgraphs/geospatial.qmd
+      - docs/rgraphs/timeseries.qmd
+      - docs/rgraphs/combining.qmd
+  - title: "Shiny R"
+    style: "floating"
+    collapse-level: 2
+    align: left
+    contents: 
+      - docs/shinyr/index.qmd
+      - docs/shinyr/intro.qmd
+      - docs/shinyr/setup.qmd
+      - docs/shinyr/ui.qmd
+      - docs/shinyr/server.qmd
+      - docs/shinyr/reactive.qmd
+      - docs/shinyr/inputs.qmd
+      - docs/shinyr/layouts.qmd
+      - docs/shinyr/widgets.qmd
+      - docs/shinyr/tables.qmd
+      - docs/shinyr/plotting.qmd
+      - docs/shinyr/modules.qmd
+      - docs/shinyr/dashboard.qmd
+      - docs/shinyr/auth.qmd
+      - docs/shinyr/maps.qmd
+      - docs/shinyr/uploads.qmd
+      - docs/shinyr/databases.qmd
+      - docs/shinyr/debugging.qmd
+      - docs/shinyr/deploy.qmd
+      - docs/shinyr/optimization.qmd
+      - docs/shinyr/casestudies.qmd
+  - title: "Quarto"
+    style: "floating"
+    collapse-level: 2
+    align: left
+    contents: 
+      - docs/quarto/index.qmd
+      - docs/quarto/intro.qmd
+      - docs/quarto/install.qmd
+      - docs/quarto/firstdoc.qmd
+      - docs/quarto/structure.qmd
+      - docs/quarto/markdown.qmd
+      - docs/quarto/code.qmd
+      - docs/quarto/render.qmd
+      - docs/quarto/css.qmd
+      - docs/quarto/templates.qmd
+      - docs/quarto/presentations.qmd
+      - docs/quarto/websites.qmd
+      - docs/quarto/blogs.qmd
+      - docs/quarto/citations.qmd
+      - docs/quarto/interactive.qmd
+      - docs/quarto/github.qmd
+      - docs/quarto/netlify.qmd
+      - docs/quarto/advanced.qmd
+      - docs/quarto/plugins.qmd
+      - docs/quarto/git.qmd
+      - docs/quarto/collaboration.qmd
+  - title: "Blog"
+    contents:
+      - docs/blog/index.qmd
+  - title: "About"
+    contents:
+      - docs/about.qmd
 
 format:
   html:

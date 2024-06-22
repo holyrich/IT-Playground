@@ -1,0 +1,351 @@
+---
+title: "Base R Plotting System"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming"]
+
+tags: ["R", "graphics", "data visualization", "base plotting system"]
+
+description: "Learn how to create and customize plots using the base R plotting system. This lecture covers essential techniques for visualizing data with base R graphics."
+---
+
+
+
+## Introduction
+
+
+
+The base R plotting system provides a simple yet powerful set of tools for creating a wide range of plots. It is built into R and does not require additional packages, making it an essential tool for data visualization. In this lecture, we will explore how to create and customize plots using the base R plotting system.
+
+
+
+## Key Concepts
+
+
+
+### 1. Basic Plot Function
+
+
+
+The `plot()` function is the most versatile and commonly used function in the base R plotting system. It can create various types of plots depending on the input data.
+
+
+
+### 2. Customizing Plots
+
+
+
+Customizing plots involves adding titles, labels, legends, and changing colors, symbols, and line types.
+
+
+
+### 3. Common Plot Types
+
+
+
+- **Scatter Plot**: Displays the relationship between two numerical variables.
+
+- **Line Chart**: Shows trends over time or ordered categories.
+
+- **Bar Plot**: Represents categorical data with rectangular bars.
+
+- **Histogram**: Visualizes the distribution of a numerical variable.
+
+- **Box Plot**: Summarizes the distribution of a numerical variable using five-number summary.
+
+
+
+## Creating and Customizing Plots
+
+
+
+### 1. Scatter Plot
+
+
+
+A scatter plot displays the relationship between two numerical variables.
+
+
+
+```{r}
+
+# Creating sample data
+
+set.seed(123)
+
+x <- rnorm(100)
+
+y <- rnorm(100)
+
+
+
+# Creating a scatter plot
+
+plot(x, y, main = "Scatter Plot", xlab = "X Axis", ylab = "Y Axis", pch = 19, col = "blue")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(x, y, main = "Scatter Plot", xlab = "X Axis", ylab = "Y Axis", pch = 19, col = "blue")
+
+```
+
+
+
+### 2. Line Chart
+
+
+
+A line chart shows trends over time or ordered categories.
+
+
+
+```{r}
+
+# Creating sample data
+
+time <- 1:100
+
+values <- cumsum(rnorm(100))
+
+
+
+# Creating a line chart
+
+plot(time, values, type = "l", main = "Line Chart", xlab = "Time", ylab = "Values", col = "red")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(time, values, type = "l", main = "Line Chart", xlab = "Time", ylab = "Values", col = "red")
+
+```
+
+
+
+### 3. Bar Plot
+
+
+
+A bar plot represents categorical data with rectangular bars.
+
+
+
+```{r}
+
+# Creating sample data
+
+categories <- c("A", "B", "C", "D")
+
+counts <- c(23, 45, 12, 56)
+
+
+
+# Creating a bar plot
+
+barplot(counts, names.arg = categories, main = "Bar Plot", xlab = "Category", ylab = "Count", col = "green")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+barplot(counts, names.arg = categories, main = "Bar Plot", xlab = "Category", ylab = "Count", col = "green")
+
+```
+
+
+
+### 4. Histogram
+
+
+
+A histogram visualizes the distribution of a numerical variable.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+data <- rnorm(1000)
+
+
+
+# Creating a histogram
+
+hist(data, main = "Histogram", xlab = "Value", ylab = "Frequency", col = "purple", breaks = 30)
+
+```
+
+
+
+```{r echo=TRUE}
+
+# Plot result
+
+hist(data, main = "Histogram", xlab = "Value", ylab = "Frequency", col = "purple", breaks = 30)
+
+```
+
+
+
+### 5. Box Plot
+
+
+
+A box plot summarizes the distribution of a numerical variable using the five-number summary.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+data <- list(
+
+  Group1 = rnorm(100, mean = 5),
+
+  Group2 = rnorm(100, mean = 10),
+
+  Group3 = rnorm(100, mean = 15)
+
+)
+
+
+
+# Creating a box plot
+
+boxplot(data, main = "Box Plot", xlab = "Group", ylab = "Value", col = c("orange", "yellow", "cyan"))
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+boxplot(data, main = "Box Plot", xlab = "Group", ylab = "Value", col = c("orange", "yellow", "cyan"))
+
+```
+
+
+
+### 6. Adding Titles and Labels
+
+
+
+Adding titles and labels helps in understanding the context and meaning of the plot.
+
+
+
+```r
+
+# Creating a scatter plot with title and labels
+
+plot(x, y, main = "Scatter Plot with Title and Labels", xlab = "X Axis Label", ylab = "Y Axis Label", pch = 19, col = "blue")
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(x, y, main = "Scatter Plot with Title and Labels", xlab = "X Axis Label", ylab = "Y Axis Label", pch = 19, col = "blue")
+
+```
+
+
+
+### 7. Adding Legends
+
+
+
+Legends help in distinguishing different groups or categories in the plot.
+
+
+
+```{r echo=TRUE}
+
+# Creating sample data
+
+group1 <- rnorm(100, mean = 5)
+
+group2 <- rnorm(100, mean = 10)
+
+
+
+# Creating a scatter plot with legend
+
+plot(group1, col = "red", pch = 19, main = "Scatter Plot with Legend", xlab = "X Axis", ylab = "Y Axis")
+
+points(group2, col = "blue", pch = 19)
+
+legend("topleft", legend = c("Group 1", "Group 2"), col = c("red", "blue"), pch = 19)
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+plot(group1, col = "red", pch = 19, main = "Scatter Plot with Legend", xlab = "X Axis", ylab = "Y Axis")
+
+points(group2, col = "blue", pch = 19)
+
+legend("topleft", legend = c("Group 1", "Group 2"), col = c("red", "blue"), pch = 19)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create and customize plots using the base R plotting system. We explored various plot types, including scatter plots, line charts, bar plots, histograms, and box plots. We also learned how to add titles, labels, and legends to enhance the readability and interpretability of the plots.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [R Graphics Cookbook](https://r-graphics.org/)
+
+- [R Documentation on Base Graphics](https://www.rdocumentation.org/packages/graphics/versions/3.6.2)
+
+- [R for Data Science](https://r4ds.had.co.nz/visualize.html)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

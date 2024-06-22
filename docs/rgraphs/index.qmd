@@ -1,0 +1,55 @@
+---
+title: "R Graphs"
+author: "TERE"
+date: "2024-06-21"
+categories: ["Data Visualization", "R Programming"]
+tags: ["R", "data visualization", "graphics", "ggplot2", "plotting in R"]
+description: "Explore the world of data visualization with R. This series of tutorials covers various graphing techniques in R, from basic plots to advanced visualizations using ggplot2 and plotly. Whether you're a beginner or an advanced user, you'll find useful tips and techniques to create stunning visualizations in R."
+---
+
+Welcome to the R Graphs section! This series of tutorials is designed to introduce you to the powerful data visualization capabilities of R. Whether you are new to data visualization or looking to enhance your skills, these tutorials will guide you through the essential techniques and advanced methods for creating stunning visualizations in R.
+
+## Contents
+
+-   [Introduction to R Graphics](intro.qmd)
+    -   Learn the basics of R graphics and the different plotting systems available in R.
+-   [Base R Plotting System](base.qmd)
+    -   Explore the fundamental plotting functions available in base R for creating a variety of basic plots.
+-   [Bar Plots](bar.qmd)
+    -   Learn how to create bar plots to visualize categorical data.
+-   [Histograms](histogram.qmd)
+    -   Discover how to create histograms to visualize the distribution of numerical data.
+-   [Pie Charts](pie.qmd)
+    -   Understand how to create pie charts to represent proportions within a dataset.
+-   [Box Plots](box.qmd)
+    -   Learn how to create box plots to visualize the distribution and spread of data.
+-   [Scatter Plots](scatter.qmd)
+    -   Discover how to create scatter plots to explore relationships between two numerical variables.
+-   [Line Charts](line.qmd)
+    -   Learn how to create line charts to visualize trends over time or other continuous variables.
+-   [Plot Customization (titles, labels, legends)](customization.qmd)
+    -   Customize your plots by adding titles, labels, legends, and other annotations to make your visualizations more informative.
+-   [Colors in Plots](colors.qmd)
+    -   Explore how to use colors effectively in your plots to enhance readability and aesthetics.
+-   [Plotting with ggplot2](ggplot2.qmd)
+    -   Dive into ggplot2, a powerful and flexible plotting system in R, to create a wide range of visualizations.
+-   [Themes in ggplot2](themes.qmd)
+    -   Customize the appearance of your ggplot2 plots using themes to create professional-looking visualizations.
+-   [Faceting in ggplot2](faceting.qmd)
+    -   Learn how to use faceting in ggplot2 to create multi-panel plots for comparing subsets of your data.
+-   [Saving Plots](saving.qmd)
+    -   Discover how to save your plots in various formats for sharing and publication.
+-   [Interactive Plots with plotly](plotly.qmd)
+    -   Explore how to create interactive plots using the plotly package to engage your audience.
+-   [3D Plots](3d.qmd)
+    -   Learn how to create 3D plots to visualize three-dimensional data.
+-   [Heatmaps](heatmaps.qmd)
+    -   Discover how to create heatmaps to represent data through color gradients.
+-   [Geospatial Plots](geospatial.qmd)
+    -   Learn how to create geospatial plots to visualize data on maps.
+-   [Time Series Plots](timeseries.qmd)
+    -   Explore techniques for plotting time series data to analyze trends and patterns over time.
+-   [Combining Multiple Plots](combining.qmd)
+    -   Learn how to combine multiple plots into a single visualization for comprehensive data analysis.
+
+We hope you find these tutorials helpful as you embark on your journey to master data visualization with R. Let's get started!

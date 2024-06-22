@@ -1,0 +1,131 @@
+---
+title: "Scatter Plots"
+author: "TERE"
+date: "2024-06-21"
+categories: ["Data Visualization", "R Programming"]
+tags: ["R", "data visualization", "scatter plots", "ggplot2", "plotting in R"]
+description: "Learn how to create scatter plots in R to explore relationships between two numerical variables. This tutorial covers various techniques for adding and customizing scatter plots using base R and ggplot2."
+---
+
+## Introduction
+
+Scatter plots are a powerful tool for exploring relationships between two numerical variables. They allow you to visualize how one variable is affected by another and can help identify patterns, trends, and potential correlations. In this tutorial, we will learn how to create scatter plots in R using both base R and ggplot2.
+
+## Creating Scatter Plots in Base R
+
+### Basic Scatter Plot
+
+You can create a basic scatter plot in base R using the `plot()` function.
+
+```r
+# Sample data
+x <- rnorm(50)
+y <- rnorm(50)
+
+# Basic scatter plot
+plot(x, y, main = "Basic Scatter Plot", xlab = "X-axis", ylab = "Y-axis")
+```
+
+### Adding Customization
+
+You can customize your scatter plot by adding colors, point shapes, and more.
+
+```r
+# Customizing scatter plot
+plot(x, y, col = "blue", pch = 19, main = "Customized Scatter Plot", xlab = "X-axis", ylab = "Y-axis")
+```
+
+### Adding a Regression Line
+
+You can add a regression line to your scatter plot to visualize the linear relationship between the variables.
+
+```r
+# Scatter plot with regression line
+plot(x, y, main = "Scatter Plot with Regression Line", xlab = "X-axis", ylab = "Y-axis")
+abline(lm(y ~ x), col = "red")
+```
+
+## Creating Scatter Plots with ggplot2
+
+ggplot2 provides a powerful and flexible system for creating scatter plots and adding various customizations.
+
+### Basic Scatter Plot
+
+You can create a basic scatter plot in ggplot2 using the `geom_point()` function.
+
+```r
+library(ggplot2)
+
+# Sample data
+data <- data.frame(x = rnorm(50), y = rnorm(50))
+
+# Basic scatter plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Basic Scatter Plot", x = "X-axis", y = "Y-axis")
+```
+
+### Customizing Points
+
+You can customize the appearance of the points in your scatter plot using additional parameters.
+
+```r
+# Customized scatter plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point(color = "blue", size = 3, shape = 16) +
+  labs(title = "Customized Scatter Plot", x = "X-axis", y = "Y-axis")
+```
+
+### Adding a Regression Line
+
+Adding a regression line in ggplot2 is straightforward using the `geom_smooth()` function.
+
+```r
+# Scatter plot with regression line
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Scatter Plot with Regression Line", x = "X-axis", y = "Y-axis")
+```
+
+### Color Mapping by Group
+
+You can map colors to a grouping variable to differentiate points by category.
+
+```r
+# Sample data with groups
+data$group <- factor(sample(letters[1:3], 50, replace = TRUE))
+
+# Scatter plot with color mapping by group
+ggplot(data, aes(x = x, y = y, color = group)) +
+  geom_point(size = 3) +
+  labs(title = "Scatter Plot with Color by Group", x = "X-axis", y = "Y-axis")
+```
+
+### Faceting by Group
+
+Faceting allows you to create multiple scatter plots for different subsets of your data.
+
+```r
+# Faceted scatter plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~ group) +
+  labs(title = "Faceted Scatter Plot", x = "X-axis", y = "Y-axis")
+```
+
+## Summary
+
+In this tutorial, we covered how to create scatter plots in R using both base R and ggplot2. We explored basic scatter plots, adding customizations, and enhancing plots with regression lines and faceting. Scatter plots are an essential tool for visualizing relationships between variables, and mastering these techniques will help you create more insightful visualizations.
+
+## Further Reading
+
+For more detailed information on creating scatter plots in R, consider exploring the following resources:
+
+- [R Graphics Cookbook](https://r-graphics.org/)
+- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+- [Scatter Plots in R](https://www.datamentor.io/r-programming/scatter-plot/)
+
+## Call to Action
+
+If you found this tutorial helpful, be sure to check out the other tutorials in the R Graphs series. Happy plotting!

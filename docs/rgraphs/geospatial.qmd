@@ -1,0 +1,429 @@
+---
+title: "Geospatial Plots"
+
+author: "TERE"
+
+date: "2024-06-21"
+
+categories: ["R Graphics", "R Programming", "Geospatial Analysis"]
+
+tags: ["R", "graphics", "data visualization", "geospatial plots", "maps"]
+
+description: "Learn how to create and customize geospatial plots in R. This lecture covers essential techniques for visualizing geospatial data using R."
+---
+
+
+
+# Geospatial Plots
+
+
+
+## Introduction
+
+
+
+Geospatial plots are a powerful tool for visualizing spatial data, allowing you to create maps and visualize data geographically. In R, you can create geospatial plots using packages like `ggplot2`, `sf`, and `leaflet`. In this lecture, we will learn how to create and customize geospatial plots in R.
+
+
+
+## Key Concepts
+
+
+
+### 1. Geospatial Data
+
+
+
+Geospatial data contains information about the geographic location and characteristics of features on the Earth's surface. This data can be represented in various formats, including shapefiles, GeoJSON, and simple data frames with latitude and longitude coordinates.
+
+
+
+### 2. Packages for Geospatial Plots
+
+
+
+- **sf**: A package for handling simple features, a standard for geospatial data.
+
+- **ggplot2**: A powerful plotting package that can be extended to create maps.
+
+- **leaflet**: A package for creating interactive maps.
+
+
+
+## Creating and Customizing Geospatial Plots in R
+
+
+
+### 1. Installing and Loading Packages
+
+
+
+If you haven't installed the required packages yet, you can install them using the following commands:
+
+
+
+```r
+
+install.packages("sf")
+
+install.packages("ggplot2")
+
+install.packages("leaflet")
+
+```
+
+
+
+Load the packages:
+
+
+
+```{r echo=TRUE}
+
+library(sf)
+
+library(ggplot2)
+
+library(leaflet)
+
+```
+
+
+
+### 2. Basic Map with ggplot2
+
+
+
+You can create a basic map using ggplot2 by plotting the boundaries of a geographic area.
+
+
+
+```{r echo=TRUE}
+
+# Loading a sample dataset
+
+nc <- st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
+
+
+
+# Creating a basic map with ggplot2
+
+ggplot(data = nc) +
+
+  geom_sf() +
+
+  labs(title = "Basic Map with ggplot2")
+
+```
+
+
+
+
+### 3. Adding Layers to the Map
+
+
+
+You can add layers to the map to visualize additional data.
+
+
+
+```{r echo=TRUE}
+
+# Creating a map with additional layers
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  labs(title = "Map with Area Fill", fill = "Area")
+
+```
+
+
+
+
+### 4. Customizing the Map
+
+
+
+You can customize the appearance of the map by adjusting colors, labels, and themes.
+
+
+
+```r
+
+# Customizing the map
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  scale_fill_viridis_c() +
+
+  labs(title = "Customized Map", fill = "Area") +
+
+  theme_minimal()
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  scale_fill_viridis_c() +
+
+  labs(title = "Customized Map", fill = "Area") +
+
+  theme_minimal()
+
+```
+
+
+
+### 5. Interactive Maps with leaflet
+
+
+
+The `leaflet` package allows you to create interactive maps that users can zoom and pan.
+
+
+
+```r
+
+# Creating a basic interactive map with leaflet
+
+leaflet(data = nc) %>%
+
+  addTiles() %>%
+
+  addPolygons()
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+leaflet(data = nc) %>%
+
+  addTiles() %>%
+
+  addPolygons()
+
+```
+
+
+
+### 6. Adding Markers and Popups
+
+
+
+You can add markers and popups to an interactive map to provide more information.
+
+
+
+```r
+
+# Adding markers and popups
+
+leaflet() %>%
+
+  addTiles() %>%
+
+  addMarkers(lng = -78.638, lat = 35.7796, popup = "Raleigh, NC") %>%
+
+  addPolygons(data = nc)
+
+```
+
+
+
+```{r}
+
+# Plot result
+
+leaflet() %>%
+
+  addTiles() %>%
+
+  addMarkers(lng = -78.638, lat = 35.7796, popup = "Raleigh, NC") %>%
+
+  addPolygons(data = nc)
+
+```
+
+
+
+## Example: Comprehensive Geospatial Plotting
+
+
+
+Here's a comprehensive example of creating and customizing geospatial plots in R.
+
+
+
+```r
+
+# Loading required packages
+
+library(sf)
+
+library(ggplot2)
+
+library(leaflet)
+
+
+
+# Loading a sample dataset
+
+nc <- st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
+
+
+
+# Basic map with ggplot2
+
+ggplot(data = nc) +
+
+  geom_sf() +
+
+  labs(title = "Basic Map with ggplot2")
+
+
+
+# Map with additional layers
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  labs(title = "Map with Area Fill", fill = "Area")
+
+
+
+# Customized map
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  scale_fill_viridis_c() +
+
+  labs(title = "Customized Map", fill = "Area") +
+
+  theme_minimal()
+
+
+
+# Basic interactive map with leaflet
+
+leaflet(data = nc) %>%
+
+  addTiles() %>%
+
+  addPolygons()
+
+
+
+# Interactive map with markers and popups
+
+leaflet() %>%
+
+  addTiles() %>%
+
+  addMarkers(lng = -78.638, lat = 35.7796, popup = "Raleigh, NC") %>%
+
+  addPolygons(data = nc)
+
+```
+
+
+
+```{r}
+
+# Plot results
+
+ggplot(data = nc) +
+
+  geom_sf() +
+
+  labs(title = "Basic Map with ggplot2")
+
+
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  labs(title = "Map with Area Fill", fill = "Area")
+
+
+
+ggplot(data = nc) +
+
+  geom_sf(aes(fill = AREA)) +
+
+  scale_fill_viridis_c() +
+
+  labs(title = "Customized Map", fill = "Area") +
+
+  theme_minimal()
+
+
+
+leaflet(data = nc) %>%
+
+  addTiles() %>%
+
+  addPolygons()
+
+
+
+leaflet() %>%
+
+  addTiles() %>%
+
+  addMarkers(lng = -78.638, lat = 35.7796, popup = "Raleigh, NC") %>%
+
+  addPolygons(data = nc)
+
+```
+
+
+
+## Summary
+
+
+
+In this lecture, we covered how to create and customize geospatial plots in R. We explored various techniques for creating maps using ggplot2 and leaflet, adding layers and markers, and customizing the appearance of maps. Geospatial plots are a powerful tool for visualizing spatial data and gaining insights into geographic patterns.
+
+
+
+## Further Reading
+
+
+
+For more detailed information, consider exploring the following resources:
+
+
+
+- [sf package documentation](https://r-spatial.github.io/sf/)
+
+- [ggplot2 documentation](https://ggplot2.tidyverse.org/)
+
+- [leaflet for R documentation](https://rstudio.github.io/leaflet/)
+
+
+
+## Call to Action
+
+
+
+If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!

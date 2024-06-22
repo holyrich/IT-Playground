@@ -1,0 +1,55 @@
+---
+title: "Machine Learning R"
+author: "TERE"
+date: "2024-06-21"
+categories: ["Machine Learning", "R Programming"]
+tags: ["R", "machine learning", "data science", "coding in R"]
+description: "Welcome to the ML R section! This series of tutorials is designed to introduce you to the fundamentals of machine learning using R, a powerful tool for data analysis, statistical computing, and graphics. Whether you are new to machine learning or transitioning from another language or platform, these tutorials will guide you step-by-step through essential concepts and techniques in machine learning with R."
+---
+
+Welcome to the ML R section! This series of tutorials is designed to introduce you to the fundamentals of machine learning using R, a powerful tool for data analysis, statistical computing, and graphics. Whether you are new to machine learning or transitioning from another language or platform, these tutorials will guide you step-by-step through essential concepts and techniques in machine learning with R.
+
+## Contents
+
+-   [Introduction to Machine Learning in R](intro.qmd)
+    -   Learn the basics of machine learning, its applications, and why R is a great tool for machine learning projects.
+-   [Data Preprocessing](preprocessing.qmd)
+    -   Step-by-step instructions on how to preprocess your data, including handling missing values, scaling, and encoding categorical variables.
+-   [Train-Test Split](split.qmd)
+    -   Learn how to split your data into training and testing sets to evaluate the performance of your machine learning models.
+-   [Linear Regression](linear.qmd)
+    -   An introduction to linear regression, including how to build, evaluate, and interpret linear models in R.
+-   [Logistic Regression](logistic.qmd)
+    -   Discover logistic regression for binary classification problems and learn how to implement and interpret these models.
+-   [Decision Trees](trees.qmd)
+    -   Explore decision tree algorithms, how to build them in R, and their applications in classification and regression tasks.
+-   [Random Forests](forests.qmd)
+    -   Learn about random forests, an ensemble method that improves prediction accuracy by combining multiple decision trees.
+-   [Support Vector Machines](svm.qmd)
+    -   Understand support vector machines (SVMs), how they work, and how to implement them for classification problems in R.
+-   [k-Nearest Neighbors](knn.qmd)
+    -   Get to know the k-nearest neighbors algorithm, including how to implement it for classification and regression tasks.
+-   [Naive Bayes](bayes.qmd)
+    -   Introduction to the Naive Bayes classifier, its assumptions, and how to use it for text classification and other applications.
+-   [Clustering with k-means](kmeans.qmd)
+    -   Learn about k-means clustering, how to perform it in R, and how to interpret the results for unsupervised learning tasks.
+-   [Hierarchical Clustering](hierarchical.qmd)
+    -   Discover hierarchical clustering methods, how to implement them, and visualize the clustering process.
+-   [Principal Component Analysis (PCA)](pca.qmd)
+    -   Understand PCA for dimensionality reduction, including how to perform PCA in R and interpret the principal components.
+-   [Model Evaluation Metrics](metrics.qmd)
+    -   Learn about various metrics to evaluate your machine learning models, such as accuracy, precision, recall, and F1 score.
+-   [Cross-Validation](crossvalidation.qmd)
+    -   Explore cross-validation techniques to assess the robustness of your models and avoid overfitting.
+-   [Hyperparameter Tuning](tuning.qmd)
+    -   Discover methods for hyperparameter tuning to optimize the performance of your machine learning models.
+-   [Ensemble Methods](ensemble.qmd)
+    -   Learn about ensemble methods like boosting and bagging to improve model accuracy and robustness.
+-   [Neural Networks with keras](keras.qmd)
+    -   Introduction to neural networks using the `keras` package in R, including building and training deep learning models.
+-   [Time Series Forecasting](timeseries.qmd)
+    -   Discover techniques for time series forecasting, including ARIMA models and other advanced methods in R.
+-   [Text Mining and NLP](nlp.qmd)
+    -   Learn about text mining and natural language processing (NLP) techniques to analyze and model text data in R.
+
+We hope you find these tutorials helpful as you embark on your journey to learn machine learning with R. Let's get started!

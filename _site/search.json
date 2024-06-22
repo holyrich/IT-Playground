@@ -1659,78 +1659,78 @@
   {
     "objectID": "docs/rgraphs/bar.html",
     "href": "docs/rgraphs/bar.html",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "",
-    "text": "title: “Bar Plots”\nauthor: “TERE”\ndate: “2024-06-21”\ncategories: [“R Graphics”, “R Programming”]\ntags: [“R”, “graphics”, “data visualization”, “bar plots”]\ndescription: “Learn how to create and customize bar plots in R. This lecture covers essential techniques for visualizing categorical data using bar plots in R.”",
+    "text": "Bar plots are a popular way to visualize categorical data by representing the frequency or count of categories with rectangular bars. Bar plots can be created in both horizontal and vertical orientations. In this lecture, we will learn how to create and customize bar plots in R.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#introduction",
     "href": "docs/rgraphs/bar.html#introduction",
-    "title": "IT Playground",
-    "section": "Introduction",
-    "text": "Introduction\nBar plots are a popular way to visualize categorical data by representing the frequency or count of categories with rectangular bars. Bar plots can be created in both horizontal and vertical orientations. In this lecture, we will learn how to create and customize bar plots in R.",
+    "title": "Bar Plots",
+    "section": "",
+    "text": "Bar plots are a popular way to visualize categorical data by representing the frequency or count of categories with rectangular bars. Bar plots can be created in both horizontal and vertical orientations. In this lecture, we will learn how to create and customize bar plots in R.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#key-concepts",
     "href": "docs/rgraphs/bar.html#key-concepts",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "Key Concepts",
     "text": "Key Concepts\n\n1. Types of Bar Plots\n\nVertical Bar Plots: Bars are oriented vertically, representing the frequency or count of categories along the y-axis.\nHorizontal Bar Plots: Bars are oriented horizontally, representing the frequency or count of categories along the x-axis.\nStacked Bar Plots: Bars are stacked on top of each other to show the total frequency or count of sub-categories.\nGrouped Bar Plots: Bars are grouped together to compare different sub-categories side by side.\n\n\n\n2. Customizing Bar Plots\nCustomizing bar plots involves adding titles, labels, colors, and legends to enhance the readability and interpretability of the plots.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#creating-and-customizing-bar-plots",
     "href": "docs/rgraphs/bar.html#creating-and-customizing-bar-plots",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "Creating and Customizing Bar Plots",
     "text": "Creating and Customizing Bar Plots\n\n1. Vertical Bar Plot\nA vertical bar plot represents the frequency or count of categories along the y-axis.\n\n# Creating sample data\n\ncategories &lt;- c(\"A\", \"B\", \"C\", \"D\")\n\ncounts &lt;- c(23, 45, 12, 56)\n\n\n\n# Creating a vertical bar plot\n\nbarplot(counts, names.arg = categories, main = \"Vertical Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = \"blue\")\n\n\n\n\n\n\n\n\n\n# Plot result\n\nbarplot(counts, names.arg = categories, main = \"Vertical Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = \"blue\")\n\n\n\n\n\n\n\n\n\n\n2. Horizontal Bar Plot\nA horizontal bar plot represents the frequency or count of categories along the x-axis.\n\n# Creating a horizontal bar plot\n\nbarplot(counts, names.arg = categories, main = \"Horizontal Bar Plot\", xlab = \"Count\", ylab = \"Category\", col = \"green\", horiz = TRUE)\n\n# Plot result\n\nbarplot(counts, names.arg = categories, main = \"Horizontal Bar Plot\", xlab = \"Count\", ylab = \"Category\", col = \"green\", horiz = TRUE)\n\n\n\n\n\n\n\n\n\n\n3. Stacked Bar Plot\nA stacked bar plot shows the total frequency or count of sub-categories by stacking bars on top of each other.\n\n# Creating sample data for stacked bar plot\n\ncounts_matrix &lt;- matrix(c(10, 15, 20, 25, 15, 10, 5, 30), nrow = 2)\n\n\n\n# Creating a stacked bar plot\n\nbarplot(counts_matrix, beside = FALSE, names.arg = categories, main = \"Stacked Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"blue\", \"red\"))\n\nlegend(\"topright\", legend = c(\"Group 1\", \"Group 2\"), fill = c(\"blue\", \"red\"))\n\n\n\n\n\n\n\n\n\n# Plot result\n\nbarplot(counts_matrix, beside = FALSE, names.arg = categories, main = \"Stacked Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"blue\", \"red\"))\n\nlegend(\"topright\", legend = c(\"Group 1\", \"Group 2\"), fill = c(\"blue\", \"red\"))\n\n\n\n\n\n\n\n\n\n\n4. Grouped Bar Plot\nA grouped bar plot compares different sub-categories side by side.\n\n# Creating a grouped bar plot\n\nbarplot(counts_matrix, beside = TRUE, names.arg = categories, main = \"Grouped Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"blue\", \"red\"))\n\nlegend(\"topright\", legend = c(\"Group 1\", \"Group 2\"), fill = c(\"blue\", \"red\"))\n\n# Plot result\n\nbarplot(counts_matrix, beside = TRUE, names.arg = categories, main = \"Grouped Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"blue\", \"red\"))\n\nlegend(\"topright\", legend = c(\"Group 1\", \"Group 2\"), fill = c(\"blue\", \"red\"))\n\n\n\n\n\n\n\n\n\n\n5. Adding Titles, Labels, and Colors\nAdding titles, labels, and colors helps in understanding the context and meaning of the bar plot.\n\n# Creating a vertical bar plot with titles, labels, and colors\n\nbarplot(counts, names.arg = categories, main = \"Customized Vertical Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"purple\", \"orange\", \"cyan\", \"magenta\"))\n\n# Plot result\n\nbarplot(counts, names.arg = categories, main = \"Customized Vertical Bar Plot\", xlab = \"Category\", ylab = \"Count\", col = c(\"purple\", \"orange\", \"cyan\", \"magenta\"))",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#summary",
     "href": "docs/rgraphs/bar.html#summary",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "Summary",
     "text": "Summary\nIn this lecture, we covered how to create and customize bar plots in R. We explored various types of bar plots, including vertical, horizontal, stacked, and grouped bar plots. We also learned how to add titles, labels, and colors to enhance the readability and interpretability of the plots.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#further-reading",
     "href": "docs/rgraphs/bar.html#further-reading",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "Further Reading",
     "text": "Further Reading\nFor more detailed information, consider exploring the following resources:\n\nBar Plots in R\nR Documentation on barplot\nR for Data Science",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
     "objectID": "docs/rgraphs/bar.html#call-to-action",
     "href": "docs/rgraphs/bar.html#call-to-action",
-    "title": "IT Playground",
+    "title": "Bar Plots",
     "section": "Call to Action",
     "text": "Call to Action\nIf you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Bar Plots"
     ]
   },
   {
@@ -2009,89 +2009,89 @@
   {
     "objectID": "docs/rgraphs/customization.html",
     "href": "docs/rgraphs/customization.html",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "",
-    "text": "title: “Plot Customization”\nauthor: “TERE”\ndate: “2024-06-21”\ncategories: [“R Graphics”, “R Programming”]\ntags: [“R”, “graphics”, “data visualization”, “plot customization”]\ndescription: “Learn how to customize plots in R. This lecture covers essential techniques for enhancing the appearance and readability of plots in R.”",
+    "text": "Customizing plots is essential for enhancing their appearance and readability. R provides a wide range of options for customizing plots, including adding titles, labels, legends, colors, and annotations. In this lecture, we will learn various techniques for customizing plots in R.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#introduction",
     "href": "docs/rgraphs/customization.html#introduction",
-    "title": "IT Playground",
-    "section": "Introduction",
-    "text": "Introduction\nCustomizing plots is essential for enhancing their appearance and readability. R provides a wide range of options for customizing plots, including adding titles, labels, legends, colors, and annotations. In this lecture, we will learn various techniques for customizing plots in R.",
+    "title": "Plot Customization",
+    "section": "",
+    "text": "Customizing plots is essential for enhancing their appearance and readability. R provides a wide range of options for customizing plots, including adding titles, labels, legends, colors, and annotations. In this lecture, we will learn various techniques for customizing plots in R.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#key-concepts",
     "href": "docs/rgraphs/customization.html#key-concepts",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Key Concepts",
     "text": "Key Concepts\n\n1. Adding Titles and Labels\nAdding titles and labels helps in understanding the context and meaning of the plot.\n\n\n2. Customizing Colors and Symbols\nCustomizing colors and symbols can differentiate between groups or highlight specific data points.\n\n\n3. Adding Legends\nAdding legends helps in identifying the categories or groups in the plot.\n\n\n4. Adding Gridlines\nAdding gridlines can make it easier to read the values of the data points.\n\n\n5. Adding Annotations\nAdding annotations can provide additional information about specific data points or regions in the plot.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#customizing-plots-in-r",
     "href": "docs/rgraphs/customization.html#customizing-plots-in-r",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Customizing Plots in R",
     "text": "Customizing Plots in R\n\n1. Adding Titles and Labels\nYou can add titles and labels to a plot using the main, xlab, and ylab parameters in the plot() function.\n\n# Creating sample data\n\nx &lt;- rnorm(100)\n\ny &lt;- rnorm(100)\n\n\n\n# Adding titles and labels\n\nplot(x, y, main = \"Scatter Plot with Titles and Labels\", xlab = \"X Axis Label\", ylab = \"Y Axis Label\", pch = 19, col = \"blue\")\n\n\n\n\n\n\n\n\n\n\n2. Customizing Colors and Symbols\nYou can customize colors and symbols using the col and pch parameters in the plot() function.\n\n# Creating sample data with groups\n\ngroup &lt;- sample(c(\"Group 1\", \"Group 2\"), 100, replace = TRUE)\ncolor_map &lt;- c(\"Group 1\" = \"blue\", \"Group 2\" = \"red\")\n\n\n\n# Customizing colors and symbols\n\nplot(x, y, \n     main = \"Scatter Plot with Custom Colors and Symbols\", \n     xlab = \"X Axis\", \n     ylab = \"Y Axis\",      \n     pch = as.numeric(factor(group)),  # Convert groups to numbers\n     col = color_map[group])  # Map colors to groups\n\n\nlegend(\"topright\", \n       legend = c(\"Group 1\", \"Group 2\"), \n       pch = c(1, 2), \n       col = c(\"black\", \"red\"))\n\n\n\n\n\n\n\n\n\n\n3. Adding Legends\nYou can add legends to a plot using the legend() function.\n\n# Creating sample data with groups\n\ngroup &lt;- sample(c(\"Group 1\", \"Group 2\"), 100, replace = TRUE)\ncolor_map &lt;- c(\"Group 1\" = \"blue\", \"Group 2\" = \"red\")\n\n\n\n# Adding legends\n\nplot(x, y, \n     main = \"Scatter Plot with Legends\", \n     xlab = \"X Axis\", \n     ylab = \"Y Axis\", \n     pch = as.numeric(factor(group)),  # Convert groups to numbers\n     col = color_map[group])  # Map colors to groups\n\nlegend(\"topright\", \n       legend = c(\"Group 1\", \"Group 2\"), \n       pch = c(1, 2), \n       col = c(\"black\", \"red\"))\n\n\n\n\n\n\n\n\n\n\n4. Adding Gridlines\nYou can add gridlines to a plot using the grid() function.\n\n# Adding gridlines\n\nplot(x, y, main = \"Scatter Plot with Gridlines\", xlab = \"X Axis\", ylab = \"Y Axis\", pch = 19, col = \"blue\")\n\ngrid(nx = NULL, ny = NULL, col = \"lightgray\", lty = \"dotted\")\n\n\n\n\n\n\n\n\n\n\n5. Adding Annotations\nYou can add annotations to a plot using the text() and arrows() functions.\n\n# Adding annotations\n\nplot(x, y, main = \"Scatter Plot with Annotations\", xlab = \"X Axis\", ylab = \"Y Axis\", pch = 19, col = \"blue\")\n\ntext(x[1:5], y[1:5], labels = paste(\"Point\", 1:5), pos = 4)\n\narrows(x[1:5], y[1:5], x[1:5] + 0.5, y[1:5] + 0.5, length = 0.1, angle = 20, col = \"red\")",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#example-comprehensive-plot-customization",
     "href": "docs/rgraphs/customization.html#example-comprehensive-plot-customization",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Example: Comprehensive Plot Customization",
     "text": "Example: Comprehensive Plot Customization\nHere’s a comprehensive example of customizing plots in R.\n\n# Creating sample data\n\nx &lt;- rnorm(100)\n\ny &lt;- rnorm(100)\n\ngroup &lt;- sample(c(\"Group 1\", \"Group 2\"), 100, replace = TRUE)\n\n# Create a color map\ncolor_map &lt;- c(\"Group 1\" = \"black\", \"Group 2\" = \"red\")\n\n\n\n# Adding titles and labels\n\nplot(x, y, \n     main = \"Comprehensive Plot Customization\", \n     xlab = \"X Axis\", \n     ylab = \"Y Axis\", \n     pch = as.numeric(factor(group)),  # Convert groups to numbers for point shapes\n     col = color_map[group])  # Map colors to groups\n\n\n\n# Adding legends\n\nlegend(\"topright\", \n       legend = c(\"Group 1\", \"Group 2\"), \n       pch = c(1, 2), \n       col = c(\"black\", \"red\"))\n\n\n\n# Adding gridlines\n\ngrid(nx = NULL, ny = NULL, col = \"lightgray\", lty = \"dotted\")\n\n\n\n# Adding annotations\n\ntext(x[1:5], y[1:5], labels = paste(\"Point\", 1:5), pos = 4)\n\narrows(x[1:5], y[1:5], x[1:5] + 0.5, y[1:5] + 0.5, length = 0.1, angle = 20, col = \"red\")",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#summary",
     "href": "docs/rgraphs/customization.html#summary",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Summary",
     "text": "Summary\nIn this lecture, we covered how to customize plots in R. We explored various techniques for adding titles, labels, colors, symbols, legends, gridlines, and annotations. Customizing plots is essential for enhancing their appearance and readability, making them more effective for communicating insights.",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#further-reading",
     "href": "docs/rgraphs/customization.html#further-reading",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Further Reading",
     "text": "Further Reading\nFor more detailed information, consider exploring the following resources:\n\nCustomizing Plots in R\nR Documentation on plot\nR for Data Science",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {
     "objectID": "docs/rgraphs/customization.html#call-to-action",
     "href": "docs/rgraphs/customization.html#call-to-action",
-    "title": "IT Playground",
+    "title": "Plot Customization",
     "section": "Call to Action",
     "text": "Call to Action\nIf you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!",
     "crumbs": [
       "R Graphs",
-      "Introduction"
+      "Plot Customization"
     ]
   },
   {

@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="TERE">
+<meta name="dcterms.date" content="2024-06-21">
+<meta name="description" content="Learn how to customize plots in R. This lecture covers essential techniques for enhancing the appearance and readability of plots in R.">
 
-<title>IT Playground</title>
+<title>IT Playground - Plot Customization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -157,8 +160,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../docs/about.qmd"> 
 <span class="menu-text">About</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="../../#"> <i class="bi bi-github" role="img" aria-label="IT Playground">
 </i> 
@@ -175,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/rgraphs/customization.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/rgraphs/customization.html">Plot Customization</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -208,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/bar.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/pie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Pie Charts</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -232,85 +233,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/scatter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">scatter.html</span></a>
+ <span class="menu-text">Scatter Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/line.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">line.html</span></a>
+ <span class="menu-text">Line Charts</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/customization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Plot Customization</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/colors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">colors.html</span></a>
+ <span class="menu-text">Colors in Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/ggplot2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ggplot2.html</span></a>
+ <span class="menu-text">Plotting with ggplot2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">themes.html</span></a>
+ <span class="menu-text">Themes in ggplot2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/faceting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">faceting.html</span></a>
+ <span class="menu-text">Faceting in ggplot2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/saving.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">saving.html</span></a>
+ <span class="menu-text">Saving Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">plotly.html</span></a>
+ <span class="menu-text">Interactive Plots with plotly</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/3d.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3d.html</span></a>
+ <span class="menu-text">3D Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/heatmaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">heatmaps.html</span></a>
+ <span class="menu-text">Heatmaps</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/geospatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">geospatial.html</span></a>
+ <span class="menu-text">Geospatial Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">timeseries.html</span></a>
+ <span class="menu-text">Time Series Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/rgraphs/combining.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">combining.html</span></a>
+ <span class="menu-text">Combining Multiple Plots</span></a>
   </div>
 </li>
     </ul>
@@ -350,17 +351,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Plot Customization</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R Graphics</div>
+    <div class="quarto-category">R Programming</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Learn how to customize plots in R. This lecture covers essential techniques for enhancing the appearance and readability of plots in R.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<hr>
-<p>title: “Plot Customization”</p>
-<p>author: “TERE”</p>
-<p>date: “2024-06-21”</p>
-<p>categories: [“R Graphics”, “R Programming”]</p>
-<p>tags: [“R”, “graphics”, “data visualization”, “plot customization”]</p>
-<p>description: “Learn how to customize plots in R. This lecture covers essential techniques for enhancing the appearance and readability of plots in R.”</p>
-<hr>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>TERE </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 21, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Customizing plots is essential for enhancing their appearance and readability. R provides a wide range of options for customizing plots, including adding titles, labels, legends, colors, and annotations. In this lecture, we will learn various techniques for customizing plots in R.</p>

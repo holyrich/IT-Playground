@@ -1,66 +1,37 @@
 ---
-
 title: "Bar Plots"
-
 author: "TERE"
-
 date: "2024-06-21"
-
 categories: ["R Graphics", "R Programming"]
-
 tags: ["R", "graphics", "data visualization", "bar plots"]
-
 description: "Learn how to create and customize bar plots in R. This lecture covers essential techniques for visualizing categorical data using bar plots in R."
-
 ---
-
-
 
 ## Introduction
 
-
-
 Bar plots are a popular way to visualize categorical data by representing the frequency or count of categories with rectangular bars. Bar plots can be created in both horizontal and vertical orientations. In this lecture, we will learn how to create and customize bar plots in R.
-
-
 
 ## Key Concepts
 
-
-
 ### 1. Types of Bar Plots
 
+-   **Vertical Bar Plots**: Bars are oriented vertically, representing the frequency or count of categories along the y-axis.
 
+-   **Horizontal Bar Plots**: Bars are oriented horizontally, representing the frequency or count of categories along the x-axis.
 
-- **Vertical Bar Plots**: Bars are oriented vertically, representing the frequency or count of categories along the y-axis.
+-   **Stacked Bar Plots**: Bars are stacked on top of each other to show the total frequency or count of sub-categories.
 
-- **Horizontal Bar Plots**: Bars are oriented horizontally, representing the frequency or count of categories along the x-axis.
-
-- **Stacked Bar Plots**: Bars are stacked on top of each other to show the total frequency or count of sub-categories.
-
-- **Grouped Bar Plots**: Bars are grouped together to compare different sub-categories side by side.
-
-
+-   **Grouped Bar Plots**: Bars are grouped together to compare different sub-categories side by side.
 
 ### 2. Customizing Bar Plots
 
-
-
 Customizing bar plots involves adding titles, labels, colors, and legends to enhance the readability and interpretability of the plots.
-
-
 
 ## Creating and Customizing Bar Plots
 
-
-
 ### 1. Vertical Bar Plot
 
-
-
 A vertical bar plot represents the frequency or count of categories along the y-axis.
-
-
 
 ```{r}
 
@@ -78,8 +49,6 @@ barplot(counts, names.arg = categories, main = "Vertical Bar Plot", xlab = "Cate
 
 ```
 
-
-
 ```{r}
 
 # Plot result
@@ -88,25 +57,16 @@ barplot(counts, names.arg = categories, main = "Vertical Bar Plot", xlab = "Cate
 
 ```
 
-
-
 ### 2. Horizontal Bar Plot
-
-
 
 A horizontal bar plot represents the frequency or count of categories along the x-axis.
 
-
-
-```r
+``` r
 
 # Creating a horizontal bar plot
 
 barplot(counts, names.arg = categories, main = "Horizontal Bar Plot", xlab = "Count", ylab = "Category", col = "green", horiz = TRUE)
-
 ```
-
-
 
 ```{r}
 
@@ -116,15 +76,9 @@ barplot(counts, names.arg = categories, main = "Horizontal Bar Plot", xlab = "Co
 
 ```
 
-
-
 ### 3. Stacked Bar Plot
 
-
-
 A stacked bar plot shows the total frequency or count of sub-categories by stacking bars on top of each other.
-
-
 
 ```{r}
 
@@ -142,8 +96,6 @@ legend("topright", legend = c("Group 1", "Group 2"), fill = c("blue", "red"))
 
 ```
 
-
-
 ```{r}
 
 # Plot result
@@ -154,27 +106,18 @@ legend("topright", legend = c("Group 1", "Group 2"), fill = c("blue", "red"))
 
 ```
 
-
-
 ### 4. Grouped Bar Plot
-
-
 
 A grouped bar plot compares different sub-categories side by side.
 
-
-
-```r
+``` r
 
 # Creating a grouped bar plot
 
 barplot(counts_matrix, beside = TRUE, names.arg = categories, main = "Grouped Bar Plot", xlab = "Category", ylab = "Count", col = c("blue", "red"))
 
 legend("topright", legend = c("Group 1", "Group 2"), fill = c("blue", "red"))
-
 ```
-
-
 
 ```{r}
 
@@ -186,25 +129,16 @@ legend("topright", legend = c("Group 1", "Group 2"), fill = c("blue", "red"))
 
 ```
 
-
-
 ### 5. Adding Titles, Labels, and Colors
-
-
 
 Adding titles, labels, and colors helps in understanding the context and meaning of the bar plot.
 
-
-
-```r
+``` r
 
 # Creating a vertical bar plot with titles, labels, and colors
 
 barplot(counts, names.arg = categories, main = "Customized Vertical Bar Plot", xlab = "Category", ylab = "Count", col = c("purple", "orange", "cyan", "magenta"))
-
 ```
-
-
 
 ```{r}
 
@@ -214,34 +148,20 @@ barplot(counts, names.arg = categories, main = "Customized Vertical Bar Plot", x
 
 ```
 
-
-
 ## Summary
-
-
 
 In this lecture, we covered how to create and customize bar plots in R. We explored various types of bar plots, including vertical, horizontal, stacked, and grouped bar plots. We also learned how to add titles, labels, and colors to enhance the readability and interpretability of the plots.
 
-
-
 ## Further Reading
-
-
 
 For more detailed information, consider exploring the following resources:
 
+-   [Bar Plots in R](https://www.datamentor.io/r-programming/bar-plot/)
 
+-   [R Documentation on barplot](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/barplot)
 
-- [Bar Plots in R](https://www.datamentor.io/r-programming/bar-plot/)
-
-- [R Documentation on barplot](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/barplot)
-
-- [R for Data Science](https://r4ds.had.co.nz/data-visualization.html)
-
-
+-   [R for Data Science](https://r4ds.had.co.nz/data-visualization.html)
 
 ## Call to Action
-
-
 
 If you found this lecture helpful, make sure to check out the other lectures in the R Graphs series. Happy plotting!
